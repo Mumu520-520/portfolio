@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>蔡岱芸 · 新媒体运营作品集</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f0f2f5;
+    color: #2c3e50;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== Password Gate ===== */
+  .pw-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(160deg, #0f1a2e 0%, #1a3550 40%, #1e4060 100%);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9999; flex-direction: column;
+  }
+  .pw-overlay.hidden { display: none; }
+  .pw-box { text-align: center; color: #fff; padding: 24px; }
+  .pw-box .pw-icon { font-size: 48px; margin-bottom: 16px; }
+  .pw-box h2 { font-size: 20px; font-weight: 700; margin-bottom: 8px; letter-spacing: 2px; }
+  .pw-box .pw-sub { font-size: 13px; opacity: 0.7; margin-bottom: 24px; }
+  .pw-input {
+    width: 200px; padding: 12px 16px; border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08);
+    color: #fff; font-size: 18px; text-align: center; outline: none;
+    letter-spacing: 8px; -webkit-text-security: disc;
+  }
+  .pw-input:focus { border-color: #4472C4; }
+  .pw-input::placeholder { color: rgba(255,255,255,0.3); letter-spacing: 2px; -webkit-text-security: none; }
+  .pw-error { color: #ff6b6b; font-size: 12px; margin-top: 8px; min-height: 18px; }
+  .pw-btn {
+    margin-top: 16px; padding: 10px 40px; border-radius: 20px;
+    border: none; background: #4472C4; color: #fff; font-size: 15px;
+    font-weight: 600; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  }
+  .pw-btn:active { background: #3a65b0; }
+
+  /* ===== Header ===== */
+  .header {
+    background: linear-gradient(160deg, #0f1a2e 0%, #1a3550 40%, #1e4060 100%);
+    padding: 44px 16px 20px;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header .back-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .header .back-btn:active { background: rgba(255,255,255,0.25); }
+  .header .title-area { flex: 1; min-width: 0; }
+  .header .page-title { font-size: 17px; font-weight: 700; }
+  .header .page-subtitle { font-size: 11px; opacity: 0.7; margin-top: 2px; }
+  .header .breadcrumb { font-size: 11px; opacity: 0.6; }
+
+  /* ===== Page Container ===== */
+  .page { display: none; padding-bottom: 48px; }
+  .page.active { display: block; }
+
+  /* ===== Home Hero ===== */
+  .home-hero {
+    background: linear-gradient(160deg, #0f1a2e 0%, #1a3550 40%, #1e4060 100%);
+    padding: 48px 24px 36px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .home-hero::after {
+    content: '';
+    position: absolute;
+    top: -40%; right: -20%;
+    width: 260px; height: 260px;
+    background: radial-gradient(circle, rgba(68,114,196,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .home-hero .avatar {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4472C4, #2e6cb5);
+    margin: 0 auto 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    border: 2px solid rgba(255,255,255,0.25);
+    position: relative; z-index: 1;
+  }
+  .home-hero h1 { font-size: 22px; font-weight: 700; letter-spacing: 2px; position: relative; z-index: 1; }
+  .home-hero .role { font-size: 13px; opacity: 0.85; margin-top: 4px; position: relative; z-index: 1; }
+  .home-hero .home-tags {
+    display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;
+    margin-top: 12px; position: relative; z-index: 1;
+  }
+  .home-hero .home-tags span {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 14px; padding: 3px 12px; font-size: 11px;
+  }
+
+  /* ===== Grid Nav ===== */
+  .nav-container { max-width: 500px; margin: 0 auto; padding: 20px 16px; }
+  .nav-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .nav-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 22px 10px 18px;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-card:active { transform: scale(0.96); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .nav-card .nav-icon { font-size: 30px; margin-bottom: 8px; display: block; }
+  .nav-card .nav-label { font-size: 13px; font-weight: 600; color: #1a3550; }
+  .nav-card .nav-count {
+    font-size: 10px; color: #4472C4; background: #eef3fb;
+    display: inline-block; padding: 1px 8px; border-radius: 8px; margin-top: 4px;
+  }
+
+  /* ===== Content Page ===== */
+  .content-container { max-width: 500px; margin: 0 auto; padding: 16px; }
+  .subnav-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .subnav-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px 14px;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s;
+    text-align: center;
+  }
+  .subnav-card:active { transform: scale(0.97); }
+  .subnav-card .sub-icon { font-size: 28px; display: block; margin-bottom: 6px; }
+  .subnav-card .sub-label { font-size: 14px; font-weight: 600; color: #1a3550; }
+  .subnav-card .sub-desc { font-size: 11px; color: #8e99a4; margin-top: 4px; line-height: 1.4; }
+
+  /* One-column subnav for公众号操盘 */
+  .subnav-list { display: flex; flex-direction: column; gap: 10px; }
+  .subnav-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    -webkit-tap-highlight-color: transparent;
+    display: flex; align-items: center; gap: 12px;
+    transition: transform 0.15s;
+  }
+  .subnav-item:active { transform: scale(0.98); }
+  .subnav-item .item-icon { font-size: 28px; flex-shrink: 0; }
+  .subnav-item .item-info { flex: 1; min-width: 0; }
+  .subnav-item .item-label { font-size: 15px; font-weight: 600; color: #1a3550; }
+  .subnav-item .item-desc { font-size: 12px; color: #8e99a4; margin-top: 2px; }
+  .subnav-item .item-arrow { color: #c0c8d0; font-size: 14px; }
+
+  /* ===== Category Tabs ===== */
+  .cat-tabs {
+    display: flex; gap: 8px; overflow-x: auto;
+    padding: 4px 0 14px; -webkit-overflow-scrolling: touch;
+  }
+  .cat-tabs::-webkit-scrollbar { display: none; }
+  .cat-tab {
+    flex-shrink: 0; padding: 7px 16px; border-radius: 20px;
+    background: #fff; color: #5a6a7e; font-size: 12px; font-weight: 500;
+    cursor: pointer; border: 1px solid #e0e4e8; white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .cat-tab.active { background: #4472C4; color: #fff; border-color: #4472C4; }
+
+  /* ===== Article Cards ===== */
+  .article-list { display: flex; flex-direction: column; gap: 10px; }
+  .article-card {
+    background: #fff; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04); cursor: pointer;
+    transition: transform 0.15s; -webkit-tap-highlight-color: transparent;
+  }
+  .article-card:active { transform: scale(0.985); }
+  .article-card .card-body { padding: 14px 16px; }
+  .article-card .card-cat {
+    font-size: 10px; color: #4472C4; background: #eef3fb;
+    display: inline-block; padding: 2px 10px; border-radius: 10px;
+    margin-bottom: 8px; font-weight: 600;
+  }
+  .article-card h4 { font-size: 15px; font-weight: 600; color: #1a3550; margin-bottom: 4px; line-height: 1.4; }
+  .article-card p { font-size: 12px; color: #7f8c8d; line-height: 1.6; }
+  .article-card .card-meta { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 11px; color: #a0aab4; }
+
+  /* ===== Empty State ===== */
+  .empty {
+    text-align: center; padding: 48px 20px; color: #a0aab4;
+  }
+  .empty .empty-icon { font-size: 40px; margin-bottom: 12px; }
+  .empty p { font-size: 13px; }
+  .empty .empty-hint { font-size: 11px; color: #c0c8d0; margin-top: 4px; }
+
+  /* ===== Section Header ===== */
+  .section-header {
+    padding: 8px 0 12px; font-size: 15px; font-weight: 700;
+    color: #1a3550; display: flex; align-items: center; gap: 8px;
+  }
+  .section-header .sec-icon { font-size: 18px; }
+
+  /* ===== Footer ===== */
+  .footer {
+    text-align: center; padding: 32px 0 24px; color: #8e99a4; font-size: 12px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Password Gate -->
+<div class="pw-overlay" id="pwGate">
+  <div class="pw-box">
+    <div class="pw-icon">🔒</div>
+    <h2>蔡岱芸 · 作品集</h2>
+    <div class="pw-sub">请输入访问密码</div>
+    <input type="password" class="pw-input" id="pwInput" placeholder="密码" maxlength="20" onkeydown="if(event.key==='Enter')checkPw()">
+    <div class="pw-error" id="pwError"></div>
+    <button class="pw-btn" onclick="checkPw()">验证</button>
+  </div>
+</div>
+
+<script>
+const PW = '4321';
+function checkPw() {
+  const input = document.getElementById('pwInput').value;
+  if (input === PW) {
+    document.getElementById('pwGate').classList.add('hidden');
+  } else {
+    document.getElementById('pwError').textContent = '密码错误，请重试';
+    document.getElementById('pwInput').value = '';
+    document.getElementById('pwInput').focus();
+  }
+}
+</script>
+
+<!-- ==================== HOME PAGE ==================== -->
+<div class="page active" id="page-home">
+  <div class="home-hero">
+    <div class="avatar">📱</div>
+    <h1>蔡岱芸</h1>
+    <div class="role">新媒体运营 · 作品集</div>
+    <div class="home-tags">
+      <span>10年+经验</span><span>B端新媒体</span><span>公众号从0到1</span><span>内容矩阵</span>
+    </div>
+  </div>
+  <div class="nav-container">
+    <div class="nav-grid">
+      <div class="nav-card" onclick="navTo('gzh')">
+        <span class="nav-icon">📝</span>
+        <div class="nav-label">公众号操盘</div>
+        <div class="nav-count">3个账号</div>
+      </div>
+      <div class="nav-card" onclick="navTo('video')">
+        <span class="nav-icon">📱</span>
+        <div class="nav-label">短视频创作</div>
+      </div>
+      <div class="nav-card" onclick="navTo('product')">
+        <span class="nav-icon">📦</span>
+        <div class="nav-label">产品宣传</div>
+      </div>
+      <div class="nav-card" onclick="navTo('corp')">
+        <span class="nav-icon">🏢</span>
+        <div class="nav-label">企业宣传</div>
+      </div>
+      <div class="nav-card" onclick="navTo('journal')">
+        <span class="nav-icon">📰</span>
+        <div class="nav-label">行业期刊</div>
+      </div>
+      <div class="nav-card" onclick="navTo('online')">
+        <span class="nav-icon">🎬</span>
+        <div class="nav-label">线上活动</div>
+      </div>
+      <div class="nav-card" onclick="navTo('offline')">
+        <span class="nav-icon">🎪</span>
+        <div class="nav-label">线下活动</div>
+      </div>
+      <div class="nav-card" onclick="navTo('benchmark')">
+        <span class="nav-icon">🏆</span>
+        <div class="nav-label">标杆打造</div>
+      </div>
+      <div class="nav-card" onclick="navTo('community')">
+        <span class="nav-icon">👥</span>
+        <div class="nav-label">社群运营</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">蔡岱芸 · daisycai@foxmail.com</div>
+</div>
+
+<!-- ==================== 公众号操盘 PAGE ==================== -->
+<div class="page" id="page-gzh">
+  <div class="header">
+    <button class="back-btn" onclick="navTo('home')">←</button>
+    <div class="title-area">
+      <div class="page-title">公众号操盘</div>
+      <div class="page-subtitle">3个B端公众号从0到1</div>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="subnav-list">
+      <div class="subnav-item" onclick="navTo('gzh-jianzao')">
+        <span class="item-icon">🏗️</span>
+        <div class="item-info">
+          <div class="item-label">建造品质观</div>
+          <div class="item-desc">明源云 · 地产工程领域 · 1万→10万+粉</div>
+        </div>
+        <span class="item-arrow">›</span>
+      </div>
+      <div class="subnav-item" onclick="navTo('gzh-maigu')">
+        <span class="item-icon">🚗</span>
+        <div class="item-info">
+          <div class="item-label">麦谷车联网</div>
+          <div class="item-desc">麦谷科技 · 车联网/IoT智能硬件</div>
+        </div>
+        <span class="item-arrow">›</span>
+      </div>
+      <div class="subnav-item" onclick="navTo('gzh-judian')">
+        <span class="item-icon">🔋</span>
+        <div class="item-info">
+          <div class="item-label">聚电车间</div>
+          <div class="item-desc">聚电网络 · 新能源汽车</div>
+        </div>
+        <span class="item-arrow">›</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 建造品质观 PAGE ==================== -->
+<div class="page" id="page-gzh-jianzao">
+  <div class="header">
+    <button class="back-btn" onclick="navTo('gzh')">←</button>
+    <div class="title-area">
+      <div class="breadcrumb">公众号操盘</div>
+      <div class="page-title">建造品质观</div>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="cat-tabs" id="jianzao-tabs">
+      <span class="cat-tab active" onclick="filterJianzao('all', this)">全部</span>
+      <span class="cat-tab" onclick="filterJianzao('热点', this)">行业热点</span>
+      <span class="cat-tab" onclick="filterJianzao('干货', this)">干货分享</span>
+      <span class="cat-tab" onclick="filterJianzao('标杆', this)">标杆打造</span>
+      <span class="cat-tab" onclick="filterJianzao('产品', this)">产品推广</span>
+      <span class="cat-tab" onclick="filterJianzao('活动', this)">市场活动</span>
+      <span class="cat-tab" onclick="filterJianzao('走心', this)">走心策划</span>
+    </div>
+    <div class="article-list" id="jianzao-list"></div>
+  </div>
+</div>
+
+<!-- ==================== 麦谷车联网 PAGE ==================== -->
+<div class="page" id="page-gzh-maigu">
+  <div class="header">
+    <button class="back-btn" onclick="navTo('gzh')">←</button>
+    <div class="title-area">
+      <div class="breadcrumb">公众号操盘</div>
+      <div class="page-title">麦谷车联网</div>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="section-header"><span class="sec-icon">🚗</span> 麦谷科技 · 车联网行业公众号</div>
+    <div class="empty">
+      <div class="empty-icon">📋</div>
+      <p>待补充内容</p>
+      <div class="empty-hint">请提供麦谷车联网公众号相关文章链接或截图</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 聚电车间 PAGE ==================== -->
+<div class="page" id="page-gzh-judian">
+  <div class="header">
+    <button class="back-btn" onclick="navTo('gzh')">←</button>
+    <div class="title-area">
+      <div class="breadcrumb">公众号操盘</div>
+      <div class="page-title">聚电车间</div>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="section-header"><span class="sec-icon">🔋</span> 聚电网络 · 新能源汽车公众号</div>
+    <div class="empty">
+      <div class="empty-icon">📋</div>
+      <p>待补充内容</p>
+      <div class="empty-hint">请提供聚电车间公众号相关文章链接或截图</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PLACEHOLDER PAGES ==================== -->
+<script>
+// Generate placeholder pages for remaining categories
+const placeholderPages = [
+  { id: 'video', parent: 'home', title: '短视频创作', icon: '📱', desc: '视频号 · 短视频内容策划与制作' },
+  { id: 'product', parent: 'home', title: '产品宣传', icon: '📦', desc: '产品推广内容策划与执行' },
+  { id: 'corp', parent: 'home', title: '企业宣传', icon: '🏢', desc: '企业品牌宣传与公关内容' },
+  { id: 'journal', parent: 'home', title: '行业期刊', icon: '📰', desc: '存量月刊 · 行业期刊编辑' },
+  { id: 'online', parent: 'home', title: '线上活动', icon: '🎬', desc: '直播 · 线上发布会 · 裂变活动' },
+  { id: 'offline', parent: 'home', title: '线下活动', icon: '🎪', desc: '峰会 · 展会 · 赛事 · 沙龙' },
+  { id: 'benchmark', parent: 'home', title: '标杆打造', icon: '🏆', desc: '客户案例包装 · 标杆内容输出' },
+  { id: 'community', parent: 'home', title: '社群运营', icon: '👥', desc: '私域社群 · 用户运营' },
+];
+
+let html = '';
+placeholderPages.forEach(p => {
+  html += `
+<div class="page" id="page-${p.id}">
+  <div class="header">
+    <button class="back-btn" onclick="navTo('${p.parent}')">←</button>
+    <div class="title-area">
+      <div class="page-title">${p.title}</div>
+      <div class="page-subtitle">${p.desc}</div>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="section-header"><span class="sec-icon">${p.icon}</span> ${p.desc}</div>
+    <div class="empty">
+      <div class="empty-icon">📋</div>
+      <p>内容整理中</p>
+      <div class="empty-hint">请提供${p.title}相关素材</div>
+    </div>
+  </div>
+</div>`;
+});
+document.body.insertAdjacentHTML('beforeend', html);
+</script>
+
+<!-- ==================== NAVIGATION LOGIC ==================== -->
+<script>
+let navStack = ['home'];
+
+function navTo(target) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // Show target
+  const page = document.getElementById('page-' + target);
+  if (page) {
+    page.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+}
+
+// ====== 建造品质观 Data ======
+const jianzaoArticles = [
+  { title: "绿城、仁恒、金茂为什么总能打败竞品？", desc: "深度拆解三大品质房企的产品力密码，揭秘它们在激烈市场中持续领先的核心竞争力。", cat: "干货", url: "https://mp.weixin.qq.com/s/EgnlHeF4D-uvLrFKWDdg5A" },
+  { title: "90万毛坯交付数据告诉你，施工时做到这四点，交房不用愁！", desc: "基于90万套毛坯交付大数据，提炼出四项关键施工管控要点，助力房企提升交付品质。", cat: "干货", url: "https://mp.weixin.qq.com/s/peqbAF6CfLeLvomkj90pcg" },
+  { title: "最火的大运营下，工程管理部就该这么干！", desc: "在大运营浪潮下，工程管理部如何找准定位、升级打法，成为房企价值链的核心一环。", cat: "干货", url: "https://mp.weixin.qq.com/s/qDXuBxOrLfVJ2SrP3tE_4w" },
+  { title: "像造飞机一样造房子？他家的「超级工厂」神了！", desc: "探访标杆房企的工业化建造体系，看「超级工厂」如何用智能制造颠覆传统施工模式。", cat: "标杆", url: "https://mp.weixin.qq.com/s/TXsOHM1A2zpE80-Abcz6UQ" },
+  { title: "交房大考时地产各部门的反应，太真实了……", desc: "以轻松笔触还原交房季各职能部门的真实状态，引发地产人强烈共鸣的爆款内容。", cat: "热点", url: "https://mp.weixin.qq.com/s/aPChlMHKZi6otPbPquvJ4Q" },
+];
+
+const catLabels = {
+  'all': '全部', '热点': '行业热点', '干货': '干货分享',
+  '标杆': '标杆打造', '产品': '产品推广', '活动': '市场活动', '走心': '走心策划'
+};
+
+function renderJianzao(cat) {
+  const filtered = cat === 'all' ? jianzaoArticles : jianzaoArticles.filter(a => a.cat === cat);
+  const container = document.getElementById('jianzao-list');
+  if (filtered.length === 0) {
+    container.innerHTML = `<div class="empty"><div class="empty-icon">📋</div><p>该分类暂无内容</p><div class="empty-hint">请提供${catLabels[cat] || cat}相关文章</div></div>`;
+    return;
+  }
+  container.innerHTML = filtered.map(a => `
+    <div class="article-card" onclick="openLink('${a.url}')">
+      <div class="card-body">
+        <span class="card-cat">${catLabels[a.cat] || a.cat}</span>
+        <h4>${a.title}</h4>
+        <p>${a.desc}</p>
+        <div class="card-meta">
+          <span>建造品质观</span>
+          <span style="color:#4472C4;">👆 阅读原文</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterJianzao(cat, el) {
+  document.querySelectorAll('#jianzao-tabs .cat-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderJianzao(cat);
+}
+
+function openLink(url) { if (url) window.open(url, '_blank'); }
+
+// Initial render
+renderJianzao('all');
+</script>
+
+</body>
+</html>
