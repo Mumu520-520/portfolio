@@ -469,11 +469,53 @@ function navTo(target) {
 
 // ====== 建造品质观 Data ======
 const jianzaoArticles = [
-  { title: "绿城、仁恒、金茂为什么总能打败竞品？", desc: "深度拆解三大品质房企的产品力密码，揭秘它们在激烈市场中持续领先的核心竞争力。", cat: "干货", url: "https://mp.weixin.qq.com/s/EgnlHeF4D-uvLrFKWDdg5A" },
-  { title: "90万毛坯交付数据告诉你，施工时做到这四点，交房不用愁！", desc: "基于90万套毛坯交付大数据，提炼出四项关键施工管控要点，助力房企提升交付品质。", cat: "干货", url: "https://mp.weixin.qq.com/s/peqbAF6CfLeLvomkj90pcg" },
-  { title: "最火的大运营下，工程管理部就该这么干！", desc: "在大运营浪潮下，工程管理部如何找准定位、升级打法，成为房企价值链的核心一环。", cat: "干货", url: "https://mp.weixin.qq.com/s/qDXuBxOrLfVJ2SrP3tE_4w" },
-  { title: "像造飞机一样造房子？他家的「超级工厂」神了！", desc: "探访标杆房企的工业化建造体系，看「超级工厂」如何用智能制造颠覆传统施工模式。", cat: "标杆", url: "https://mp.weixin.qq.com/s/TXsOHM1A2zpE80-Abcz6UQ" },
-  { title: "交房大考时地产各部门的反应，太真实了……", desc: "以轻松笔触还原交房季各职能部门的真实状态，引发地产人强烈共鸣的爆款内容。", cat: "热点", url: "https://mp.weixin.qq.com/s/aPChlMHKZi6otPbPquvJ4Q" },
+  // 一、行业热点 (6)
+  { title: "绿城、仁恒、金茂为什么总能打败竞品？", desc: "蹭行业品质力热点，将研究院PPT转化为文章，产品软植入", cat: "热点", url: "https://mp.weixin.qq.com/s/EgnlHeF4D-uvLrFKWDdg5A" },
+  { title: "疫情下，房企要早日安全复工，该怎么做？", desc: "蹭行业热点推广产品", cat: "热点", url: "https://mp.weixin.qq.com/s/JzrlEZOOppZxEADA-Y1EgQ" },
+  { title: "疫情影响之下，房地产工程部该如何应对？", desc: "蹭行业热点，将直播内容转化为文章，产品软植入", cat: "热点", url: "https://mp.weixin.qq.com/s/xLPtGDS4vwkteRbFHShKXg" },
+  { title: "冲千亿路上又曝事故！工程质量安全到底该怎么保？", desc: "蹭行业负面热点，整合书籍知识成文，获boss点赞", cat: "热点", url: "https://mp.weixin.qq.com/s/02H5xjmHIddMRHAiGKxUZA" },
+  { title: "金地、东原、绿城的工地现场，简直就是活广告！", desc: "蹭政策热点，产品软植入", cat: "热点", url: "https://mp.weixin.qq.com/s/c3oB2MHU6siXUeFkIiTENg" },
+  { title: "一年只卖3次地，竟对工程产生三大影响？", desc: "蹭政策热点，扩展短视频脚本成文，产品软植入", cat: "热点", url: "https://mp.weixin.qq.com/s/BOkwwcEMwT9kKkGGiCJi1A" },
+  // 二、干货分享 (6)
+  { title: "最火的大运营下，工程管理部就该这么干！", desc: "行业概念科普，产品软植入", cat: "干货", url: "https://mp.weixin.qq.com/s/qDXuBxOrLfVJ2SrP3tE_4w" },
+  { title: "一个工程部顶过一个售楼处？融创、东原、旭辉做的这件事太牛了！", desc: "行业前沿概念打造，产品软植入", cat: "干货", url: "https://mp.weixin.qq.com/s/toT__VP_nOisD-fq3u6f0Q" },
+  { title: "融创、绿城、东原的交付现场，太让人惊叹了", desc: "总结标杆优秀做法，产品软植入", cat: "干货", url: "https://mp.weixin.qq.com/s/hU_FHFijfaxlmT1pbRlW9w" },
+  { title: "精装交付前该狠抓什么？观感！观感！观感！", desc: "分享行业标杆交付环节优秀做法", cat: "干货", url: "https://mp.weixin.qq.com/s/kIMmxg7n1VjEfMmqGq5Htg" },
+  { title: "中海、万科防渗漏的关键做法，再不担心房子漏水", desc: "分享行业防渗漏优秀做法，产品软植入", cat: "干货", url: "https://mp.weixin.qq.com/s/EAf2pIU5bmMxiBYrERf-oA" },
+  { title: "保利、绿城的地下车库，简直就是活广告！", desc: "分享行业地下车库优秀做法", cat: "干货", url: "https://mp.weixin.qq.com/s/nTMilYABFXzDUJwebf-3mA" },
+  // 三、标杆打造 (9)
+  { title: "回归技术后，他家工程管理这样创新，厉害了！", desc: "第一次采访客户并撰写标杆打造稿件", cat: "标杆", url: "https://mp.weixin.qq.com/s/Q-SACUKzYHJcf7wPqxhKxA" },
+  { title: "像造飞机一样造房子？他家的「超级工厂」神了！", desc: "帮客户进行品牌营销包装，被客户点赞说是真正懂行业的媒体", cat: "标杆", url: "https://mp.weixin.qq.com/s/TXsOHM1A2zpE80-Abcz6UQ" },
+  { title: "绿城的工地，再一次让人惊艳！", desc: "帮客户推广项目，产品软植入", cat: "标杆", url: "https://mp.weixin.qq.com/s/c0GntLs8I7p1O25KWoORRA" },
+  { title: "这个中天系的工地太让人惊艳了！", desc: "直播预热干货稿，产品软植入", cat: "标杆", url: "https://mp.weixin.qq.com/s/81wVNaqejo5iDxRkoaPmzg" },
+  { title: "中海系这套安全管理体系，太极致了！", desc: "标杆优秀体系分享，产品软植入", cat: "标杆", url: "https://mp.weixin.qq.com/s/CAgyrpDzTcdNMctPFZZcog" },
+  { title: "两大网红工地的真面目被揭开！穿插施工、新建造体系亮了", desc: "直播沉淀干货，打造标杆的同时产品软植入", cat: "标杆", url: "https://mp.weixin.qq.com/s/V9zr2HifTdvht61ixDCJOA" },
+  { title: "「全透明」式工地开放，他家太敢了！", desc: "宁夏中房包装稿件，产品软植入", cat: "标杆", url: "https://mp.weixin.qq.com/s/ZIvFxydMNbjf7PlSrO8sFQ" },
+  { title: "工地复工后怎样防疫？这家拿过广厦奖的房企做法值得借鉴", desc: "包装客户优秀做法，产品软植入", cat: "标杆", url: "https://mp.weixin.qq.com/s/JQV0o-t3tE7OBEm66xjJ1g" },
+  { title: "杀回行业前十！年报揭开这家国央企背后的三大秘诀", desc: "招商蛇口包装稿件，产品软植入", cat: "标杆", url: "https://mp.weixin.qq.com/s/yYZPqgXArj8ujOEBtSe6Zw" },
+  // 四、产品推广 (7)
+  { title: "工程部最头疼的4大难题，保利、金地竟这样解决了！", desc: "从行业痛点包装产品", cat: "产品", url: "https://mp.weixin.qq.com/s/2ruMAyjl-t8-x8Pgcdh1bw" },
+  { title: "保利、金地、中海的防渗漏诀窍，再不怕交付维权！", desc: "产品广告软植入", cat: "产品", url: "https://mp.weixin.qq.com/s/9Q-swgaFAo6ArLajxz41ZQ" },
+  { title: "第五代工程管控武器曝光，太智能了！", desc: "产品硬广", cat: "产品", url: "https://mp.weixin.qq.com/s/tawXHd-Lsh1vsyd427DrMA" },
+  { title: "地产变局已至！这款神器助力房企赢在品质起跑线", desc: "产品升级硬广", cat: "产品", url: "https://mp.weixin.qq.com/s/Nm0AQWFLT4MOOQluz3eOYQ" },
+  { title: "地产客服必备！微利时代下的新一代智能服务助手来了！", desc: "产品新版本硬广", cat: "产品", url: "https://mp.weixin.qq.com/s/B3tNHohI7tt3j69_s9kWhA" },
+  { title: "数智保障房 | 明源云保障房运营管理平台正式发布！", desc: "新品发布", cat: "产品", url: "https://mp.weixin.qq.com/s?__biz=MzA3MTg3ODQzMw==&mid=2649877306&idx=1&sn=df330cee1f7e55863d29d2bfdb69289a" },
+  { title: "新一代安全履职AI产品曝光！已助力500+国企安全管理升级", desc: "安全产品硬广", cat: "产品", url: "https://mp.weixin.qq.com/s/w8FG9vKorFYPriYpWpoT_w" },
+  // 五、市场活动 (9)
+  { title: "微利时代，为什么这些房企不是降成本而是保品质？", desc: "将峰会PPT总结成干货，产品软植入", cat: "活动", url: "https://mp.weixin.qq.com/s/yIyoOZxzb1GmxAd5a4p-Eg" },
+  { title: "几位千亿客服大咖集体喊话：客服部只要这样干，未来肯定很美好！", desc: "峰会干货总结", cat: "活动", url: "https://mp.weixin.qq.com/s/GFKR2XwYHxeE426cWDMEaA" },
+  { title: "昨天，180位客服总在一行业顶级闭门会议上，聊了这些精华", desc: "峰会干货总结", cat: "活动", url: "https://mp.weixin.qq.com/s/2hTf9JwYDNYGdWEy1y_U-A" },
+  { title: "金句频出！中海、绿城、远洋、金茂的大咖们这样解码「十四五」……", desc: "峰会干货总结", cat: "活动", url: "https://mp.weixin.qq.com/s/dbX48BR9iuS8ycSOa17guA" },
+  { title: "刚刚闭门的峰会上，中海、华润、金地、世茂等分享了这些干货", desc: "峰会干货总结", cat: "活动", url: "https://mp.weixin.qq.com/s/9STJKtYCmaieTUHiKKQwCQ" },
+  { title: "刚刚，来自朗诗、绿城、融创等的十几位地产高管集体发声……", desc: "峰会干货总结", cat: "活动", url: "https://mp.weixin.qq.com/s/k-MrZ3xhlJsr-0IHJjc0Rw" },
+  { title: "寻品质标杆·赢地产未来 | 走进绿城、中天美好杭派品质标杆项目", desc: "直播干货宣传", cat: "活动", url: "https://mp.weixin.qq.com/s/fc7wVJS_ba3jbmYC8DwihA" },
+  { title: "保利、绿城、中交的品质标杆工地，绝绝子！", desc: "直播前宣传", cat: "活动", url: "https://mp.weixin.qq.com/s/eizjaJak9QhBTTbywIinQw" },
+  { title: "品质房企的年度盛会，500+品质标杆邀你同聚，来吗？", desc: "峰会前期宣传", cat: "活动", url: "https://mp.weixin.qq.com/s/5190Wa5dFobxLkuZfEeV-A" },
+  // 六、走心策划 (4)
+  { title: "交房大考时地产各部门的反应，太真实了……", desc: "以漫画创作形式揭示业内痛点，引发情感共鸣", cat: "走心", url: "https://mp.weixin.qq.com/s/aPChlMHKZi6otPbPquvJ4Q" },
+  { title: "工地上甲方与总包斗智斗勇的日常，最后都哭了......", desc: "图文并茂展示行业人员日常，引发情感共鸣", cat: "走心", url: "https://mp.weixin.qq.com/s/SGv56T6GQSKodzSLFwNLQw" },
+  { title: "《地产工程复仇者联盟》来了！灭霸居然是他？", desc: "蹭社会热点，引发行业讨论", cat: "走心", url: "https://mp.weixin.qq.com/s/1S1Rg0QS1NbXqiVXz-_x2g" },
+  { title: "2020，和地产人经历的那些难忘瞬间......（内有惊喜）", desc: "漫画形式制作年度总结，打造品牌力", cat: "走心", url: "https://mp.weixin.qq.com/s/IVfGGGlpYys8zxWi3liLUw" },
 ];
 
 const catLabels = {
