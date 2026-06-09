@@ -364,8 +364,7 @@ function checkPw() {
   </div>
   <div class="content-container">
     <div class="cat-tabs" id="jianzao-tabs">
-      <span class="cat-tab active" onclick="filterJianzao('all', this)">全部</span>
-      <span class="cat-tab" onclick="filterJianzao('热点', this)">行业热点</span>
+      <span class="cat-tab active" onclick="filterJianzao('热点', this)">行业热点</span>
       <span class="cat-tab" onclick="filterJianzao('干货', this)">干货分享</span>
       <span class="cat-tab" onclick="filterJianzao('标杆', this)">标杆打造</span>
       <span class="cat-tab" onclick="filterJianzao('产品', this)">产品推广</span>
@@ -420,37 +419,12 @@ function checkPw() {
     <button class="back-btn" onclick="navTo('home')">←</button>
     <div class="title-area">
       <div class="page-title">短视频创作</div>
-      <div class="page-subtitle">视频号 · 建造品质观</div>
-    </div>
-  </div>
-  <div class="content-container">
-    <div class="subnav-list">
-      <div class="subnav-item" onclick="navTo('video-jianzao')">
-        <span class="item-icon">🏗️</span>
-        <div class="item-info">
-          <div class="item-label">建造品质观</div>
-          <div class="item-desc">50条视频 · 6大分类</div>
-        </div>
-        <span class="item-arrow">›</span>
-      </div>
-    </div>
-    <div style="margin-top:12px;text-align:center;font-size:12px;color:#a0aab4;">更多账号视频待补充</div>
-  </div>
-</div>
-
-<!-- ==================== 建造品质观视频号 PAGE ==================== -->
-<div class="page" id="page-video-jianzao">
-  <div class="header">
-    <button class="back-btn" onclick="navTo('video')">←</button>
-    <div class="title-area">
-      <div class="breadcrumb">短视频创作</div>
-      <div class="page-title">建造品质观 · 视频号</div>
+      <div class="page-subtitle">建造品质观 · 视频号 · 50条</div>
     </div>
   </div>
   <div class="content-container">
     <div class="cat-tabs" id="video-tabs">
-      <span class="cat-tab active" onclick="filterVideo('all', this)">全部</span>
-      <span class="cat-tab" onclick="filterVideo('宏观', this)">宏观趋势</span>
+      <span class="cat-tab active" onclick="filterVideo('宏观', this)">宏观趋势</span>
       <span class="cat-tab" onclick="filterVideo('标杆', this)">标杆瞭望</span>
       <span class="cat-tab" onclick="filterVideo('活动', this)">市场活动</span>
       <span class="cat-tab" onclick="filterVideo('产品', this)">产品推广</span>
@@ -600,7 +574,7 @@ function filterJianzao(cat, el) {
 function openLink(url) { if (url) window.open(url, '_blank'); }
 
 // Initial render
-renderJianzao('all');
+renderJianzao('热点');
 
 // ====== 建造品质观视频号 Data ======
 const jianzaoVideos = [
@@ -694,7 +668,7 @@ function filterVideo(cat, el) {
   renderVideo(cat);
 }
 
-renderVideo('all');
+renderVideo('宏观');
 </script>
 
 </body>

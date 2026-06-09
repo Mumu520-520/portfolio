@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>蔡岱芸 · 作品集</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f5f7fa;
+    color: #2c3e50;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 480px; margin: 0 auto; padding: 0 16px 40px; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #1a3a5c 0%, #2c5f8a 50%, #1a3a5c 100%);
+    padding: 48px 20px 36px;
+    text-align: center;
+    color: #fff;
+    margin: 0 -16px 24px;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 20px rgba(26,58,92,0.3);
+  }
+  .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; letter-spacing: 2px; }
+  .hero .subtitle { font-size: 13px; opacity: 0.85; margin-bottom: 16px; }
+  .hero .tags { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+  .hero .tag {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 11px;
+    backdrop-filter: blur(10px);
+  }
+
+  /* Section */
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin: 32px 0 16px;
+    padding-left: 12px;
+    border-left: 4px solid #4472C4;
+  }
+  .section-desc {
+    font-size: 13px;
+    color: #7f8c8d;
+    margin: -8px 0 16px;
+    padding-left: 16px;
+  }
+
+  /* Category tabs */
+  .category-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 4px 0 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .category-tabs::-webkit-scrollbar { display: none; }
+  .category-tab {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: #fff;
+    color: #5a6a7e;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid #e0e4e8;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .category-tab.active {
+    background: #4472C4;
+    color: #fff;
+    border-color: #4472C4;
+  }
+
+  /* Cards */
+  .cards { display: flex; flex-direction: column; gap: 12px; }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    display: none;
+  }
+  .card.visible { display: block; }
+  .card:active { transform: scale(0.98); box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+  .card-cover {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #e8edf3, #d5dde8);
+  }
+  .card-body { padding: 14px 16px; }
+  .card-category {
+    font-size: 10px;
+    color: #4472C4;
+    background: #edf2fb;
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .card h3 { font-size: 16px; font-weight: 600; color: #1a3a5c; margin-bottom: 6px; line-height: 1.4; }
+  .card p { font-size: 12px; color: #7f8c8d; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .card-meta { display: flex; align-items: center; gap: 12px; margin-top: 10px; font-size: 11px; color: #a0aab4; }
+  .card-meta .platform { background: #f0f5f0; color: #07c160; padding: 1px 8px; border-radius: 8px; font-weight: 500; }
+  .card-meta .platform.video { background: #fff0e6; color: #fa7834; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 32px 0 20px;
+    color: #a0aab4;
+    font-size: 12px;
+  }
+  .footer a { color: #4472C4; text-decoration: none; }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center;
+    padding: 48px 20px;
+    color: #a0aab4;
+  }
+  .empty-state .icon { font-size: 40px; margin-bottom: 12px; }
+  .empty-state p { font-size: 13px; }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.75);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>蔡岱芸</h1>
+  <div class="subtitle">品牌市场 · 活动策划 · 内容运营</div>
+  <div class="tags">
+    <span class="tag">11年经验</span>
+    <span class="tag">B2B科技</span>
+    <span class="tag">品牌从0到1</span>
+    <span class="tag">千人峰会</span>
+    <span class="tag">直播策划</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 公众号文章 -->
+  <div class="section-title">📝 公众号文章</div>
+  <div class="section-desc">「建造品质观」精选原创内容</div>
+  <div class="category-tabs" id="article-tabs">
+    <span class="category-tab active" data-cat="all">全部</span>
+  </div>
+  <div class="cards" id="article-cards"></div>
+
+  <!-- 视频号 -->
+  <div class="section-title">🎬 视频号</div>
+  <div class="section-desc">活动现场 & 品牌内容精选</div>
+  <div class="category-tabs" id="video-tabs">
+    <span class="category-tab active" data-cat="all">全部</span>
+  </div>
+  <div class="cards" id="video-cards"></div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>📧 daisycai@foxmail.com &nbsp;|&nbsp; 📱 188-XXXX-XXXX</p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ====== 数据配置 ======
+// 👇 在这里修改文章和视频数据
+
+const articles = [
+  { title: "绿城、仁恒、金茂为什么总能打败竞品？", desc: "深度拆解三大品质房企的产品力密码，揭秘它们在激烈市场中持续领先的核心竞争力。", cat: "行业干货", url: "https://mp.weixin.qq.com/s/EgnlHeF4D-uvLrFKWDdg5A", cover: "" },
+  { title: "90万毛坯交付数据告诉你，施工时做到这四点，交房不用愁！", desc: "基于90万套毛坯交付大数据，提炼出四项关键施工管控要点，助力房企提升交付品质。", cat: "行业干货", url: "https://mp.weixin.qq.com/s/peqbAF6CfLeLvomkj90pcg", cover: "" },
+  { title: "最火的大运营下，工程管理部就该这么干！", desc: "在大运营浪潮下，工程管理部如何找准定位、升级打法，成为房企价值链的核心一环。", cat: "行业干货", url: "https://mp.weixin.qq.com/s/qDXuBxOrLfVJ2SrP3tE_4w", cover: "" },
+  { title: "像造飞机一样造房子？他家的「超级工厂」神了！", desc: "探访标杆房企的工业化建造体系，看「超级工厂」如何用智能制造颠覆传统施工模式。", cat: "标杆案例", url: "https://mp.weixin.qq.com/s/TXsOHM1A2zpE80-Abcz6UQ", cover: "" },
+  { title: "交房大考时地产各部门的反应，太真实了……", desc: "以轻松笔触还原交房季各职能部门的真实状态，引发地产人强烈共鸣的爆款内容。", cat: "节日热点", url: "https://mp.weixin.qq.com/s/aPChlMHKZi6otPbPquvJ4Q", cover: "" },
+];
+
+const videos = [
+  { title: "视频标题1", desc: "简介待填写", cat: "活动花絮", url: "https://weixin.qq.com/sph/A9R8XUJ8Vl", cover: "" },
+  { title: "视频标题2", desc: "简介待填写", cat: "直播回放", url: "https://weixin.qq.com/sph/ArbLewNm1M", cover: "" },
+];
+
+// ====== 渲染逻辑 ======
+function renderCards(data, containerId, tabsId, linkClass) {
+  const container = document.getElementById(containerId);
+  const tabsContainer = document.getElementById(tabsId);
+  
+  if (data.length === 0) {
+    container.innerHTML = '<div class="empty-state"><div class="icon">📭</div><p>暂无内容</p></div>';
+    return;
+  }
+
+  // 收集分类
+  const cats = ['all', ...new Set(data.map(d => d.cat))];
+  
+  // 渲染分类tab
+  tabsContainer.innerHTML = cats.map(c => 
+    `<span class="category-tab${c==='all'?' active':''}" data-cat="${c}">${c==='all'?'全部':c}</span>`
+  ).join('');
+
+  // 渲染卡片
+  container.innerHTML = data.map((d, i) => `
+    <div class="card visible" data-cat="${d.cat}" data-url="${d.url}" onclick="openLink('${d.url}', '${linkClass}')">
+      ${d.cover ? `<img class="card-cover" src="${d.cover}" alt="${d.title}" onerror="this.style.display='none'">` : ''}
+      <div class="card-body">
+        <span class="card-category">${d.cat}</span>
+        <h3>${d.title}</h3>
+        <p>${d.desc}</p>
+        <div class="card-meta">
+          <span class="platform ${linkClass}">${linkClass === 'wechat' ? '公众号' : '视频号'}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // Tab点击事件
+  tabsContainer.querySelectorAll('.category-tab').forEach(tab => {
+    tab.addEventListener('click', function(e) {
+      e.stopPropagation();
+      tabsContainer.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+      const cat = this.dataset.cat;
+      container.querySelectorAll('.card').forEach(card => {
+        card.classList.toggle('visible', cat === 'all' || card.dataset.cat === cat);
+      });
+    });
+  });
+}
+
+function openLink(url, type) {
+  // 微信内直接打开，外部浏览器尝试跳转
+  if (url) {
+    window.open(url, '_blank');
+  }
+}
+
+// 初始化
+renderCards(articles, 'article-cards', 'article-tabs', 'wechat');
+renderCards(videos, 'video-cards', 'video-tabs', 'video');
+</script>
+</body>
+</html>
