@@ -414,11 +414,57 @@ function checkPw() {
   </div>
 </div>
 
+<!-- ==================== 短视频创作 PAGE ==================== -->
+<div class="page" id="page-video">
+  <div class="header">
+    <button class="back-btn" onclick="navTo('home')">←</button>
+    <div class="title-area">
+      <div class="page-title">短视频创作</div>
+      <div class="page-subtitle">视频号 · 建造品质观</div>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="subnav-list">
+      <div class="subnav-item" onclick="navTo('video-jianzao')">
+        <span class="item-icon">🏗️</span>
+        <div class="item-info">
+          <div class="item-label">建造品质观</div>
+          <div class="item-desc">50条视频 · 6大分类</div>
+        </div>
+        <span class="item-arrow">›</span>
+      </div>
+    </div>
+    <div style="margin-top:12px;text-align:center;font-size:12px;color:#a0aab4;">更多账号视频待补充</div>
+  </div>
+</div>
+
+<!-- ==================== 建造品质观视频号 PAGE ==================== -->
+<div class="page" id="page-video-jianzao">
+  <div class="header">
+    <button class="back-btn" onclick="navTo('video')">←</button>
+    <div class="title-area">
+      <div class="breadcrumb">短视频创作</div>
+      <div class="page-title">建造品质观 · 视频号</div>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="cat-tabs" id="video-tabs">
+      <span class="cat-tab active" onclick="filterVideo('all', this)">全部</span>
+      <span class="cat-tab" onclick="filterVideo('宏观', this)">宏观趋势</span>
+      <span class="cat-tab" onclick="filterVideo('标杆', this)">标杆瞭望</span>
+      <span class="cat-tab" onclick="filterVideo('活动', this)">市场活动</span>
+      <span class="cat-tab" onclick="filterVideo('产品', this)">产品推广</span>
+      <span class="cat-tab" onclick="filterVideo('技术', this)">技术风向</span>
+      <span class="cat-tab" onclick="filterVideo('热点', this)">热点走心</span>
+    </div>
+    <div class="article-list" id="video-list"></div>
+  </div>
+</div>
+
 <!-- ==================== PLACEHOLDER PAGES ==================== -->
 <script>
 // Generate placeholder pages for remaining categories
 const placeholderPages = [
-  { id: 'video', parent: 'home', title: '短视频创作', icon: '📱', desc: '视频号 · 短视频内容策划与制作' },
   { id: 'product', parent: 'home', title: '产品宣传', icon: '📦', desc: '产品推广内容策划与执行' },
   { id: 'corp', parent: 'home', title: '企业宣传', icon: '🏢', desc: '企业品牌宣传与公关内容' },
   { id: 'journal', parent: 'home', title: '行业期刊', icon: '📰', desc: '存量月刊 · 行业期刊编辑' },
@@ -555,6 +601,100 @@ function openLink(url) { if (url) window.open(url, '_blank'); }
 
 // Initial render
 renderJianzao('all');
+
+// ====== 建造品质观视频号 Data ======
+const jianzaoVideos = [
+  // 宏观趋势篇 (6)
+  { title: "解读十四五建筑业发展规划，五大目标快速消化", date: "2022.3.18", cat: "宏观", url: "https://weixin.qq.com/sph/ANLcDIId93" },
+  { title: "两会再提房地产！非常时期，传递重大信号", date: "2022.3.10", cat: "宏观", url: "https://weixin.qq.com/sph/AWlOEnsCFf" },
+  { title: "房地产工程管理正迎来三大巨变", date: "2020.4.13", cat: "宏观", url: "https://weixin.qq.com/sph/A7wiHFol1P" },
+  { title: "规模翻倍增长，工程管理必须以法治取代人治", date: "2020.4.28", cat: "宏观", url: "https://weixin.qq.com/sph/AapEYyA0Xb" },
+  { title: "通过数字化拉通总部和工地现场，工程总动态掌控项目", date: "2020.5.6", cat: "宏观", url: "https://weixin.qq.com/sph/AZLqyVPc0b" },
+  { title: "大基建时代，城投城建的三大挑战", date: "2022.5.18", cat: "宏观", url: "https://weixin.qq.com/sph/A3g9F4X0gQ" },
+  // 标杆瞭望塔 (15)
+  { title: "绿城万科掌舵人发言截然不同，地产进入「大分化」时代", date: "2022.2.16", cat: "标杆", url: "https://weixin.qq.com/sph/AJPzyNrpCF" },
+  { title: "董事长亲自上台为品质代言，东原到底凭啥？", date: "2020.10.12", cat: "标杆", url: "https://weixin.qq.com/sph/A2K6MSz8vx" },
+  { title: "金地科学筑家享誉行业，离不开工程体系3大关键创新", date: "2020.8.21", cat: "标杆", url: "https://weixin.qq.com/sph/AZI1wNdJMt" },
+  { title: "金茂逆势增长首进前10强，核心在于高品质产品", date: "2020.8.4", cat: "标杆", url: "https://weixin.qq.com/sph/AIbQLnAUgp" },
+  { title: "学习高端制造业，东原的超级工厂早已先行一步", date: "2020.7.2", cat: "标杆", url: "https://weixin.qq.com/sph/A6ffiSVE0M" },
+  { title: "郁亮提出万科要向制造业学习，到底学些啥？", date: "2020.7.1", cat: "标杆", url: "https://weixin.qq.com/sph/ATwKXCoGig" },
+  { title: "碧桂园要用机器人造房子了，工程部还能干些啥？", date: "2020.6.2", cat: "标杆", url: "https://weixin.qq.com/sph/AdD1ipXF11" },
+  { title: "华润的高品质是如何五年磨一剑的？", date: "2020.6.3", cat: "标杆", url: "https://weixin.qq.com/sph/AH7nC1XoM9" },
+  { title: "碧桂园SSGF、万科5+2+X、旭辉建造2.0究竟牛在哪", date: "2020.4.29", cat: "标杆", url: "https://weixin.qq.com/sph/AEReiSnjE9" },
+  { title: "旭辉提出打造房地产透明工厂，通过建造透明化赢取信任", date: "2020.5.12", cat: "标杆", url: "https://weixin.qq.com/sph/AbiH7S1wlX" },
+  { title: "万科的工程管理体系又升级了", date: "2020.5.13", cat: "标杆", url: "https://weixin.qq.com/sph/A8azyITW6o" },
+  { title: "解读保利、金茂、华润工程组织架构调整的关键信息", date: "2020.5.14", cat: "标杆", url: "https://weixin.qq.com/sph/Ah44Q6wy8A" },
+  { title: "看中海好品质是如何炼成的？", date: "2020.5.25", cat: "标杆", url: "https://weixin.qq.com/sph/AeTF5kMM90" },
+  { title: "绿城被称为「产品之王」，归功于长期坚持产品主义", date: "2020.5.26", cat: "标杆", url: "https://weixin.qq.com/sph/AdWSVagCDX" },
+  { title: "重回TOP10的世茂，工程管理体系也做出一系列变革升级", date: "2020.5.28", cat: "标杆", url: "https://weixin.qq.com/sph/AxudMeIoXm" },
+  // 市场活动类 (8)
+  { title: "20+重磅嘉宾，500+房企掌舵人齐聚2021房地产品质力峰会", date: "2021.5.21", cat: "活动", url: "https://weixin.qq.com/sph/A2QtQGfWjz" },
+  { title: "田明在品质力峰会上提出三大观点，值得关注", date: "2021.6.16", cat: "活动", url: "https://weixin.qq.com/sph/Ai7eLB6Ur8" },
+  { title: "要做「TOP10中的品质标杆」，绿城说到做到！", date: "2021.7.7", cat: "活动", url: "https://weixin.qq.com/sph/AhCneDkYtP" },
+  { title: "拥有「四力」是房企活下去的关键", date: "2021.6.24", cat: "活动", url: "https://weixin.qq.com/sph/A6qWPYlX3U" },
+  { title: "精装交房，你家有没有这样的人性化细节？", date: "2020.8.9", cat: "活动", url: "https://weixin.qq.com/sph/Ama0pfP3VV" },
+  { title: "大咖带你看保利、奥园的工地现场（先导片）", date: "2020.4.16", cat: "活动", url: "https://weixin.qq.com/sph/AGCKm9YlAo" },
+  { title: "奥园亲身演示铝模穿插施工的详细做法", date: "2020.4.17", cat: "活动", url: "https://weixin.qq.com/sph/AUqBfBOdr7" },
+  { title: "实测实量在集团巡检中占比最高，奥园总结出四大招", date: "2020.5.4", cat: "活动", url: "https://weixin.qq.com/sph/ARu5rjGNfU" },
+  // 产品推广类 (4)
+  { title: "你以为项目巡检是这样？", date: "2021.3.1", cat: "产品", url: "https://weixin.qq.com/sph/AFZ9mVFGth" },
+  { title: "工地现场发现问题跟施工单位说了却无人整改，咋办？", date: "2021.1.15", cat: "产品", url: "https://weixin.qq.com/sph/AMW75f1nl2" },
+  { title: "工地上事儿太多，淋水试验总没时间盯，咋办？", date: "2021.1.22", cat: "产品", url: "https://weixin.qq.com/sph/AfCS3pFm8Z" },
+  { title: "这种工地管理方式，简直超乎你想象！", date: "2021.4.2", cat: "产品", url: "https://weixin.qq.com/sph/AWX5N6DslJ" },
+  // 技术风向标 (8)
+  { title: "四明线、四暗线、四底线，你知道吗？", date: "2021.4.9", cat: "技术", url: "https://weixin.qq.com/sph/AJC5rZprR0" },
+  { title: "万科这个工地火了！集中加工都车间化了", date: "2020.11.20", cat: "技术", url: "https://weixin.qq.com/sph/AqZGsgDTm0" },
+  { title: "如何从工程经理晋升为项目总？你得具备这些本事", date: "2020.6.26", cat: "技术", url: "https://weixin.qq.com/sph/AJV2Wdwsgb" },
+  { title: "武汉某工地塔吊坍塌事故，塔吊安全该如何管？", date: "2020.6.9", cat: "技术", url: "https://weixin.qq.com/sph/A5MDwbc47H" },
+  { title: "如何提高实测实量得分？", date: "2020.6.10", cat: "技术", url: "https://weixin.qq.com/sph/AGZyf5Wi3q" },
+  { title: "项目总也有段位，对标看看你是哪个段位？", date: "2020.8.24", cat: "技术", url: "https://weixin.qq.com/sph/AMevK6B8F0" },
+  { title: "脚手架安全管理怎么做？排在工地伤亡事故之首", date: "2020.5.29", cat: "技术", url: "https://weixin.qq.com/sph/AkJ6qDdS33" },
+  { title: "成品保护事不大，一旦没做好却很糟心", date: "2020.5.27", cat: "技术", url: "https://weixin.qq.com/sph/AMmz3Ict7W" },
+  // 热点走心类 (9)
+  { title: "每次看到大塔吊就想到爸爸。我的爸爸是位工程师，他建了好多好多的房子", date: "2020.6.20", cat: "热点", url: "https://weixin.qq.com/sph/AqUwF3txLz" },
+  { title: "交房大考硬核出场，业主考官已就位，地产各部门你们准备好了吗？", date: "2020.9.20", cat: "热点", url: "https://weixin.qq.com/sph/ATEYcGPvDa" },
+  { title: "交房现场面对业主的火眼金睛，地产各部门的真实反应，真相了！", date: "2020.9.21", cat: "热点", url: "https://weixin.qq.com/sph/AJ7ZAKwxSR" },
+  { title: "工程人如何过七夕？对不起，我不配", date: "2020.8.25", cat: "热点", url: "https://weixin.qq.com/sph/AAeOeQRBX0" },
+  { title: "工程人从年薪10万到年薪百万，需要这几步", date: "2020.4.7", cat: "热点", url: "https://weixin.qq.com/sph/ALL6cUujzu" },
+  { title: "2020，我和你那些难忘的瞬间...", date: "2021.1.19", cat: "热点", url: "https://weixin.qq.com/sph/AOzeVBw5NR" },
+  { title: "每位工程人都应该扮演好这4个角色！", date: "2020.4.9", cat: "热点", url: "https://weixin.qq.com/sph/A9KhHOW8G2" },
+  { title: "没有十全十美的施工方，工程项目经理如何做好「教练员」？", date: "2020.4.10", cat: "热点", url: "https://weixin.qq.com/sph/ArAqax429r" },
+  { title: "占用工程人时间最多的就是「协调」，如何做好现场协调？", date: "2020.4.24", cat: "热点", url: "https://weixin.qq.com/sph/AHGUZYNXnZ" },
+];
+
+const videoCatLabels = {
+  'all': '全部', '宏观': '宏观趋势', '标杆': '标杆瞭望',
+  '活动': '市场活动', '产品': '产品推广', '技术': '技术风向', '热点': '热点走心'
+};
+
+function renderVideo(cat) {
+  const filtered = cat === 'all' ? jianzaoVideos : jianzaoVideos.filter(v => v.cat === cat);
+  const container = document.getElementById('video-list');
+  if (filtered.length === 0) {
+    container.innerHTML = '<div class="empty"><div class="empty-icon">📋</div><p>暂无内容</p></div>';
+    return;
+  }
+  container.innerHTML = filtered.map(v => `
+    <div class="article-card" onclick="openLink('${v.url}')">
+      <div class="card-body">
+        <span class="card-cat">${videoCatLabels[v.cat] || v.cat}</span>
+        <h4>${v.title}</h4>
+        <div class="card-meta">
+          <span>📅 ${v.date}</span>
+          <span class="platform video">视频号</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterVideo(cat, el) {
+  document.querySelectorAll('#video-tabs .cat-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderVideo(cat);
+}
+
+renderVideo('all');
 </script>
 
 </body>
