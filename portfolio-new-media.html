@@ -756,12 +756,83 @@ function checkPw() {
   </div>
 </div>
 
+<!-- ==================== 行业期刊 PAGE ==================== -->
+<div class="page" id="page-journal">
+  <div class="header">
+    <button class="back-btn" onclick="navTo('home')">←</button>
+    <div class="title-area">
+      <div class="page-title">行业期刊</div>
+      <div class="page-subtitle">案例期刊 · 专题期刊</div>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="subnav-list">
+      <div class="subnav-item" onclick="navTo('journal-bk')">
+        <span class="item-icon">📖</span>
+        <div class="item-info">
+          <div class="item-label">标杆案例期刊</div>
+          <div class="item-desc">整合案例成书 · 获取线索800+ · 商机300+W</div>
+        </div>
+        <span class="item-arrow">›</span>
+      </div>
+      <div class="subnav-item" onclick="navTo('journal')">
+        <span class="item-icon">📋</span>
+        <div class="item-info">
+          <div class="item-label">专题期刊</div>
+          <div class="item-desc">待补充物料</div>
+        </div>
+        <span class="item-arrow">›</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 标杆案例期刊 PAGE ==================== -->
+<div class="page" id="page-journal-bk">
+  <div class="header">
+    <button class="back-btn" onclick="navTo('journal')">←</button>
+    <div class="title-area">
+      <div class="page-title">标杆案例期刊</div>
+      <div class="page-subtitle">首创整合案例成书，亲自撰写编辑</div>
+    </div>
+  </div>
+  <div class="content-container">
+
+    <div style="background:#eef3fb;border-radius:12px;padding:16px;margin-bottom:20px;text-align:center;">
+      <div style="font-size:13px;color:#1a3550;font-weight:600;margin-bottom:8px;">📊 核心数据</div>
+      <div style="display:flex;justify-content:center;gap:24px;">
+        <div><span style="font-size:24px;font-weight:800;color:#4472C4;">800+</span><br><span style="font-size:11px;color:#8e99a4;">获取线索</span></div>
+        <div><span style="font-size:24px;font-weight:800;color:#4472C4;">22</span><br><span style="font-size:11px;color:#8e99a4;">商机数</span></div>
+        <div><span style="font-size:24px;font-weight:800;color:#4472C4;">300+W</span><br><span style="font-size:11px;color:#8e99a4;">商机金额</span></div>
+      </div>
+    </div>
+
+    <div class="section-header"><span class="sec-icon">📖</span> 一、期刊摘取</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;">
+      <img src="images/bkimage1.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/bkimage2.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/bkimage3.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/bkimage4.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+    </div>
+
+    <div class="section-header" style="margin-top:16px;"><span class="sec-icon">📢</span> 二、宣传物料</div>
+    <div style="margin-bottom:8px;">
+      <img src="images/bkimage5.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);max-height:400px;object-fit:contain;" onerror="this.style.display='none'">
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;">
+      <img src="images/bkimage6.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/bkimage7.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/bkimage8.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+    </div>
+
+  </div>
+</div>
+
 <!-- ==================== PLACEHOLDER PAGES ==================== -->
 <script>
 // Generate placeholder pages for remaining categories
 const placeholderPages = [
   { id: 'corp', parent: 'home', title: '企业宣传', icon: '🏢', desc: '企业品牌宣传与公关内容' },
-  { id: 'journal', parent: 'home', title: '行业期刊', icon: '📰', desc: '存量月刊 · 行业期刊编辑' },
   { id: 'online', parent: 'home', title: '线上活动', icon: '🎬', desc: '直播 · 线上发布会 · 裂变活动' },
   { id: 'offline', parent: 'home', title: '线下活动', icon: '🎪', desc: '峰会 · 展会 · 赛事 · 沙龙' },
   { id: 'benchmark', parent: 'home', title: '标杆打造', icon: '🏆', desc: '客户案例包装 · 标杆内容输出' },
