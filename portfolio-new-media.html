@@ -356,8 +356,8 @@ function checkPw() {
       <div class="subnav-item" onclick="navTo('gzh-maigu')">
         <span class="item-icon">🚗</span>
         <div class="item-info">
-          <div class="item-label">麦谷车联网</div>
-          <div class="item-desc">麦谷科技 · 车联网/IoT智能硬件</div>
+          <div class="item-label">麦谷科技</div>
+          <div class="item-desc">麦谷科技 · 车联网/IoT · 24篇文章</div>
         </div>
         <span class="item-arrow">›</span>
       </div>
@@ -395,22 +395,24 @@ function checkPw() {
   </div>
 </div>
 
-<!-- ==================== 麦谷车联网 PAGE ==================== -->
+<!-- ==================== 麦谷科技 PAGE ==================== -->
 <div class="page" id="page-gzh-maigu">
   <div class="header">
     <button class="back-btn" onclick="navTo('gzh')">←</button>
     <div class="title-area">
       <div class="breadcrumb">公众号操盘</div>
-      <div class="page-title">麦谷车联网</div>
+      <div class="page-title">麦谷科技</div>
     </div>
   </div>
   <div class="content-container">
-    <div class="section-header"><span class="sec-icon">🚗</span> 麦谷科技 · 车联网行业公众号</div>
-    <div class="empty">
-      <div class="empty-icon">📋</div>
-      <p>待补充内容</p>
-      <div class="empty-hint">请提供麦谷车联网公众号相关文章链接或截图</div>
+    <div class="cat-tabs" id="maigu-tabs">
+      <span class="cat-tab active" onclick="filterMaigu('荣誉', this)">公司荣誉</span>
+      <span class="cat-tab" onclick="filterMaigu('展会', this)">行业展会</span>
+      <span class="cat-tab" onclick="filterMaigu('访谈', this)">新闻访谈</span>
+      <span class="cat-tab" onclick="filterMaigu('文化', this)">企业文化</span>
+      <span class="cat-tab" onclick="filterMaigu('产品', this)">产品稿件</span>
     </div>
+    <div class="article-list" id="maigu-list"></div>
   </div>
 </div>
 
@@ -1173,6 +1175,62 @@ function filterVideo(cat, el) {
 }
 
 renderVideo('宏观');
+
+// ====== 麦谷科技公众号 Data ======
+const maiguArticles = [
+  // 公司荣誉 (7)
+  { title: "麦谷科技荣登2017德勤深圳高科技高成长20强榜单榜首", date: "2017.9.21", cat: "荣誉", url: "https://mp.weixin.qq.com/s/9-9-79r6fWQr41caRx7jdQ" },
+  { title: "麦谷科技成为首批粤港澳大湾区智能汽车合作伙伴", date: "2018.6.21", cat: "荣誉", url: "https://mp.weixin.qq.com/s/tD_UJcuqV7rx4LHGZmuH5w" },
+  { title: "麦谷科技斩获2018第五届中国国际车联网大会双料大奖", date: "2018.4.9", cat: "荣誉", url: "https://mp.weixin.qq.com/s/NgPvd4t22u2XBcK58idknQ" },
+  { title: "麦谷科技斩获2017中国财经峰会「年度最具成长性公司」奖", date: "2017.12.14", cat: "荣誉", url: "https://mp.weixin.qq.com/s/tnI2tWdVaL9G9E3gjKaTaQ" },
+  { title: "智能麦联获OFweek 2017「维科杯」智能硬件最佳方案奖", date: "2017.11.14", cat: "荣誉", url: "https://mp.weixin.qq.com/s/ESwreK3jWn8sNwUheI4Sag" },
+  { title: "麦谷车联—麦联宝荣获2017汽车电子行业年度新兴实力品牌之星", date: "2017.6.30", cat: "荣誉", url: "https://mp.weixin.qq.com/s/gI_-kHI_Yf7PLAIsfEpppw" },
+  { title: "屡获殊荣！麦谷科技荣膺2018年度深圳市中小企业最佳雇主", date: "2019.1.29", cat: "荣誉", url: "https://mp.weixin.qq.com/s/byPXr08OwbAYIsPXB7b8ow" },
+  // 行业展会 (6)
+  { title: "麦谷车联亮相AAITF深圳秋季展，「持续赋能，让车联网更简单！」", date: "2017.7.15", cat: "展会", url: "https://mp.weixin.qq.com/s/F1VAy_4y5EesvHJiJj3fGg" },
+  { title: "麦谷车联亮相AAITF深圳秋季展，为何成为现场焦点？", date: "2017.7.15", cat: "展会", url: "https://mp.weixin.qq.com/s/1c0KkXFKwWP5nkQP0Mu6lw" },
+  { title: "深圳九州展圆满落幕，麦谷车联为展会90%导航厂家「赋能」", date: "2017.7.16", cat: "展会", url: "https://mp.weixin.qq.com/s/VL7dCESL81t45_HqvnzkTg" },
+  { title: "2018AAITF深圳九州展圆满落幕！麦谷车联惊艳余温久久未退！", date: "2018.3.2", cat: "展会", url: "https://mp.weixin.qq.com/s/UcLe8s-gYXer21WV3fbrBQ" },
+  { title: "我们憋了这么久的大招，今天终于打出来了！", date: "2018.3.1", cat: "展会", url: "https://mp.weixin.qq.com/s/n1qcc16oNCQBOM_TyPZ_1w" },
+  { title: "麦谷科技携物联网流量虚拟运营平台-麦联宝亮相武汉点金展", date: "2017.6.17", cat: "展会", url: "https://mp.weixin.qq.com/s/TVFmuAOEzSFqm6QR_ji0Hg" },
+  // 新闻访谈 (3)
+  { title: "麦谷科技王洪生：DT+AI浪潮下，企业该如何借势转型", date: "2017.8.30", cat: "访谈", url: "https://mp.weixin.qq.com/s/qUznYGhBPgYsbLAvzHNGjw" },
+  { title: "麦谷科技周志文出席第五届深商全球大会，并发表主题演讲", date: "2019.1.15", cat: "访谈", url: "https://mp.weixin.qq.com/s/JRquRspFv9xzay0T7vbG1A" },
+  { title: "麦谷科技受邀参加「汽车电子视角下的车路协同」专题研讨会", date: "2018.11.28", cat: "访谈", url: "https://mp.weixin.qq.com/s/VVRf99gZf4FYJFfLXZCfDw" },
+  // 企业文化 (5)
+  { title: "麦谷大事记：2018即将到站，2019，携手麦进！", date: "2018.12.31", cat: "文化", url: "https://mp.weixin.qq.com/s/CM1lbZ8A2EeET-Rg-J_LCA" },
+  { title: "2018小麦春游记之桂林 · 阳朔", date: "2018.5.15", cat: "文化", url: "https://mp.weixin.qq.com/s/LtZ03mP1pIqBYe8kV9i3gA" },
+  { title: "2018小麦秋游记之绿色明珠 · 河源", date: "2018.11.22", cat: "文化", url: "https://mp.weixin.qq.com/s/GgCbdd9CMOdomyXokBwspA" },
+  { title: "麦谷八周年啤酒狂欢嘉年华！麦联 未来，无限 梦想！", date: "2018.7.13", cat: "文化", url: "https://mp.weixin.qq.com/s/DbVesRCiyj1jPuayvecMXw" },
+  { title: "前方高能！听说看完这篇文章，你就能梦想成真！", date: "2018.2.9", cat: "文化", url: "https://mp.weixin.qq.com/s/W-Krg30BlqdwqgXgsR015Q" },
+  // 产品稿件 (2)
+  { title: "麦谷车联，让车联网更简单！", date: "2017.10.26", cat: "产品", url: "https://mp.weixin.qq.com/s/jf406Qx4DRAm2LczaYDEBA" },
+  { title: "智能麦联，是如何让车联网更简单的？", date: "2017.8.18", cat: "产品", url: "https://mp.weixin.qq.com/s/6g-JZ6O9PD_shgBvlfKrzA" },
+];
+
+const maiguCatLabels = { '荣誉': '公司荣誉', '展会': '行业展会', '访谈': '新闻访谈', '文化': '企业文化', '产品': '产品稿件' };
+
+function renderMaigu(cat) {
+  const filtered = cat === 'all' ? maiguArticles : maiguArticles.filter(a => a.cat === cat);
+  const container = document.getElementById('maigu-list');
+  container.innerHTML = filtered.map(a => `
+    <div class="article-card" onclick="openLink('${a.url}')">
+      <div class="card-body">
+        <span class="card-cat">${maiguCatLabels[a.cat]}</span>
+        <h4>${a.title}</h4>
+        <div class="card-meta"><span>📅 ${a.date}</span><span class="platform">公众号</span></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterMaigu(cat, el) {
+  document.querySelectorAll('#maigu-tabs .cat-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderMaigu(cat);
+}
+
+renderMaigu('荣誉');
 </script>
 
 </body>
