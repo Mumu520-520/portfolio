@@ -42,6 +42,26 @@
   }
   .pw-btn:active { background: #3a65b0; }
 
+  /* ===== H5 Mini Program Card ===== */
+  .h5-card {
+    display: flex; align-items: center; gap: 12px;
+    background: #fff; border-radius: 12px; padding: 14px 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin: 8px 0 16px;
+    cursor: pointer; -webkit-tap-highlight-color: transparent;
+    border: 1px solid #e8ecf1;
+  }
+  .h5-card:active { background: #f7f9fc; }
+  .h5-card .h5-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: linear-gradient(135deg, #07c160, #06ad56);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .h5-card .h5-info { flex: 1; min-width: 0; }
+  .h5-card .h5-label { font-size: 11px; color: #07c160; font-weight: 600; }
+  .h5-card .h5-title { font-size: 13px; color: #1a3550; font-weight: 500; margin-top: 2px; }
+  .h5-card .h5-arrow { color: #c0c8d0; font-size: 16px; }
+
   /* ===== Header ===== */
   .header {
     background: linear-gradient(160deg, #0f1a2e 0%, #1a3550 40%, #1e4060 100%);
@@ -527,8 +547,13 @@ function checkPw() {
     </div>
 
     <div style="font-size:13px;font-weight:600;color:#1a3550;margin:12px 0 8px;">2. 广告长图 / H5（一板斧）</div>
-    <div style="font-size:11px;color:#4472C4;margin-bottom:16px;">
-      🔗 <a href="https://v4.rabbitpre.com/m2/aUe1ZjYsEI" target="_blank" style="color:#4472C4;">#小程序://明源云旧版/uhs7Hcg1rnwspte</a>
+    <div class="h5-card" onclick="openLink('https://v4.rabbitpre.com/m2/aUe1ZjYsEI')">
+      <div class="h5-icon">📱</div>
+      <div class="h5-info">
+        <div class="h5-label">小程序</div>
+        <div class="h5-title">明源云旧版 · 查看完整H5长图</div>
+      </div>
+      <span class="h5-arrow">›</span>
     </div>
 
     <div style="font-size:13px;font-weight:600;color:#1a3550;margin:12px 0 8px;">3. 广告文章（二板斧）</div>
@@ -583,8 +608,13 @@ function checkPw() {
     <div style="margin-bottom:8px;">
       <img src="images/engimage12.webp" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);max-height:400px;object-fit:contain;" onerror="this.style.display='none'">
     </div>
-    <div style="font-size:11px;color:#4472C4;margin-bottom:4px;">
-      🔗 <a href="https://v4.rabbitpre.com/m2/aUe1ZjYsEI" target="_blank" style="color:#4472C4;">H5长图链接</a>
+    <div class="h5-card" onclick="openLink('https://v4.rabbitpre.com/m2/aUe1ZjYsEI')">
+      <div class="h5-icon">📱</div>
+      <div class="h5-info">
+        <div class="h5-label">H5长图</div>
+        <div class="h5-title">工程质检升级物料 · 查看完整长图</div>
+      </div>
+      <span class="h5-arrow">›</span>
     </div>
     <div class="article-card" onclick="openLink('https://mp.weixin.qq.com/s/tawXHd-Lsh1vsyd427DrMA')">
       <div class="card-body">
@@ -599,8 +629,13 @@ function checkPw() {
       <img src="images/engimage13.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
       <img src="images/engimage14.webp" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
     </div>
-    <div style="font-size:11px;color:#4472C4;margin-bottom:4px;">
-      🔗 <a href="https://v4.rabbitpre.com/m2/aUe1ZjXbpi" target="_blank" style="color:#4472C4;">H5长图链接</a>
+    <div class="h5-card" onclick="openLink('https://v4.rabbitpre.com/m2/aUe1ZjXbpi')">
+      <div class="h5-icon">📱</div>
+      <div class="h5-info">
+        <div class="h5-label">H5长图</div>
+        <div class="h5-title">防渗漏专项产品 · 查看完整长图</div>
+      </div>
+      <span class="h5-arrow">›</span>
     </div>
     <div class="article-card" onclick="openLink('https://mp.weixin.qq.com/s/9Q-swgaFAo6ArLajxz41ZQ')">
       <div class="card-body">
@@ -615,8 +650,13 @@ function checkPw() {
       <img src="images/engimage15.webp" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
       <img src="images/engimage16.webp" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
     </div>
-    <div style="font-size:11px;color:#4472C4;margin-bottom:4px;">
-      🔗 <a href="https://v4.rabbitpre.com/m2/aUe1ZjXrvq" target="_blank" style="color:#4472C4;">H5长图链接</a>
+    <div class="h5-card" onclick="openLink('https://v4.rabbitpre.com/m2/aUe1ZjXrvq')">
+      <div class="h5-icon">📱</div>
+      <div class="h5-info">
+        <div class="h5-label">H5长图</div>
+        <div class="h5-title">质量专项产品 · 查看完整长图</div>
+      </div>
+      <span class="h5-arrow">›</span>
     </div>
 
   </div>
