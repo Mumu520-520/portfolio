@@ -828,11 +828,121 @@ function checkPw() {
   </div>
 </div>
 
+<!-- ==================== 企业宣传 PAGE ==================== -->
+<div class="page" id="page-corp">
+  <div class="header">
+    <button class="back-btn" onclick="navTo('home')">←</button>
+    <div class="title-area">
+      <div class="page-title">企业宣传</div>
+      <div class="page-subtitle">官网 · PPT · 画册 · 展厅 · 宣传片</div>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="subnav-list">
+      <div class="subnav-item" onclick="navTo('corp-web')">
+        <span class="item-icon">🌐</span><div class="item-info"><div class="item-label">企业官网</div><div class="item-desc">麦谷科技 · 明源云</div></div><span class="item-arrow">›</span>
+      </div>
+      <div class="subnav-item" onclick="navTo('corp-ppt')">
+        <span class="item-icon">📊</span><div class="item-info"><div class="item-label">企业PPT</div><div class="item-desc">公司介绍 · 产品方案</div></div><span class="item-arrow">›</span>
+      </div>
+      <div class="subnav-item" onclick="navTo('corp-book')">
+        <span class="item-icon">📖</span><div class="item-info"><div class="item-label">企业画册</div><div class="item-desc">品牌画册 · 产品手册</div></div><span class="item-arrow">›</span>
+      </div>
+      <div class="subnav-item" onclick="navTo('corp-hall')">
+        <span class="item-icon">🏛️</span><div class="item-info"><div class="item-label">展厅搭建</div><div class="item-desc">企业展厅 · 体验空间</div></div><span class="item-arrow">›</span>
+      </div>
+      <div class="subnav-item" onclick="navTo('corp-video')">
+        <span class="item-icon">🎥</span><div class="item-info"><div class="item-label">企业宣传片</div><div class="item-desc">麦谷科技 · 品牌视频</div></div><span class="item-arrow">›</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 企业官网 PAGE ==================== -->
+<div class="page" id="page-corp-web">
+  <div class="header"><button class="back-btn" onclick="navTo('corp')">←</button><div class="title-area"><div class="page-title">企业官网</div></div></div>
+  <div class="content-container">
+    <div class="section-header"><span class="sec-icon">🚗</span> 麦谷科技官网</div>
+    <div style="font-size:12px;color:#7f8c8d;margin-bottom:8px;">负责整个项目推进和内容输出，版本沿用至今</div>
+    <div class="h5-card" onclick="openLink('http://www.mapgoo.net/')"><div class="h5-icon">🌐</div><div class="h5-info"><div class="h5-label">官网</div><div class="h5-title">www.mapgoo.net</div></div><span class="h5-arrow">›</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;">
+      <img src="images/corp1.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp2.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp3.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+    </div>
+
+    <div class="section-header" style="margin-top:16px;"><span class="sec-icon">🏗️</span> 明源云官网</div>
+    <div style="font-size:12px;color:#7f8c8d;margin-bottom:8px;">负责产品线相关物料</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+      <img src="images/corp4.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp5.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp6.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp7.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+    </div>
+    <div class="h5-card" onclick="openLink('https://www.mingyuanyun.com/products/project-construction-management/project-managements')"><div class="h5-icon">🌐</div><div class="h5-info"><div class="h5-label">官网</div><div class="h5-title">明源云 · 项目云产品页</div></div><span class="h5-arrow">›</span></div>
+  </div>
+</div>
+
+<!-- ==================== 企业PPT PAGE ==================== -->
+<div class="page" id="page-corp-ppt">
+  <div class="header"><button class="back-btn" onclick="navTo('corp')">←</button><div class="title-area"><div class="page-title">企业PPT</div><div class="page-subtitle">公司介绍 · 产品方案</div></div></div>
+  <div class="content-container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      <img src="images/corp8.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp9.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp10.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp11.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp12.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp13.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp14.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 企业画册 PAGE ==================== -->
+<div class="page" id="page-corp-book">
+  <div class="header"><button class="back-btn" onclick="navTo('corp')">←</button><div class="title-area"><div class="page-title">企业画册</div><div class="page-subtitle">品牌画册 · 产品手册</div></div></div>
+  <div class="content-container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      <img src="images/corp15.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp16.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp17.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp18.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp19.jpeg" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp20.jpeg" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp21.jpeg" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp22.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp23.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 展厅搭建 PAGE ==================== -->
+<div class="page" id="page-corp-hall">
+  <div class="header"><button class="back-btn" onclick="navTo('corp')">←</button><div class="title-area"><div class="page-title">展厅搭建</div><div class="page-subtitle">企业展厅 · 体验空间</div></div></div>
+  <div class="content-container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      <img src="images/corp24.jpeg" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+      <img src="images/corp25.jpeg" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'">
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 企业宣传片 PAGE ==================== -->
+<div class="page" id="page-corp-video">
+  <div class="header"><button class="back-btn" onclick="navTo('corp')">←</button><div class="title-area"><div class="page-title">企业宣传片</div><div class="page-subtitle">麦谷科技 · 品牌视频</div></div></div>
+  <div class="content-container">
+    <div class="section-header"><span class="sec-icon">🚗</span> 麦谷科技</div>
+    <div style="font-size:12px;color:#7f8c8d;margin-bottom:8px;">让车联网更简单，让车生活更美好</div>
+    <div class="h5-card" onclick="openLink('https://v.qq.com/x/page/e0741hjjqp7.html')"><div class="h5-icon">▶️</div><div class="h5-info"><div class="h5-label">企业宣传片</div><div class="h5-title">麦谷科技品牌宣传片</div></div><span class="h5-arrow">›</span></div>
+    <div class="h5-card" onclick="openLink('https://v.qq.com/x/page/n0741yy16os.html')"><div class="h5-icon">▶️</div><div class="h5-info"><div class="h5-label">展会广告片</div><div class="h5-title">麦谷科技展会广告片</div></div><span class="h5-arrow">›</span></div>
+  </div>
+</div>
+
 <!-- ==================== PLACEHOLDER PAGES ==================== -->
 <script>
 // Generate placeholder pages for remaining categories
 const placeholderPages = [
-  { id: 'corp', parent: 'home', title: '企业宣传', icon: '🏢', desc: '企业品牌宣传与公关内容' },
   { id: 'online', parent: 'home', title: '线上活动', icon: '🎬', desc: '直播 · 线上发布会 · 裂变活动' },
   { id: 'offline', parent: 'home', title: '线下活动', icon: '🎪', desc: '峰会 · 展会 · 赛事 · 沙龙' },
   { id: 'benchmark', parent: 'home', title: '标杆打造', icon: '🏆', desc: '客户案例包装 · 标杆内容输出' },
