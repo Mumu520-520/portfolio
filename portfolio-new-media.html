@@ -1003,9 +1003,7 @@ function checkPw() {
       <div class="subnav-item" onclick="navTo('offline-expo')">
         <span class="item-icon">🎪</span><div class="item-info"><div class="item-label">大型展会</div><div class="item-desc">主策划</div></div><span class="item-arrow">›</span>
       </div>
-      <div class="subnav-item" onclick="navTo('offline-launch')">
-        <span class="item-icon">🎤</span><div class="item-info"><div class="item-label">品牌发布会</div><div class="item-desc">主策划 · 线上产品发布会</div></div><span class="item-arrow">›</span>
-      </div>
+      <div class="subnav-item"><span class="item-icon">🎤</span><div class="item-info"><div class="item-label">品牌发布会</div><div class="item-desc">待补充物料</div></div><span class="item-arrow">›</span></div>
       <div class="subnav-item"><span class="item-icon">🔄</span><div class="item-info"><div class="item-label">巡回沙龙</div><div class="item-desc">待补充物料</div></div><span class="item-arrow">›</span></div>
       <div class="subnav-item"><span class="item-icon">🤝</span><div class="item-info"><div class="item-label">活动赞助</div><div class="item-desc">待补充物料</div></div><span class="item-arrow">›</span></div>
     </div>
@@ -1293,8 +1291,8 @@ function checkPw() {
 </div>
 
 <!-- ==================== 品牌发布会 PAGE ==================== -->
-<div class="page" id="page-offline-launch">
-  <div class="header"><button class="back-btn" onclick="navTo('offline')">←</button><div class="title-area"><div class="page-title">品牌发布会</div><div class="page-subtitle">主策划 · 线上产品发布会</div></div></div>
+<div class="page" id="page-online-launch">
+  <div class="header"><button class="back-btn" onclick="navTo('online')">←</button><div class="title-area"><div class="page-title">线上产品发布会</div><div class="page-subtitle">主策划</div></div></div>
   <div class="content-container">
     <div class="section-header"><span class="sec-icon">📋</span> 活动方案</div>
     <div style="margin-bottom:8px;"><img src="images/launch1.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
@@ -1320,11 +1318,30 @@ function checkPw() {
   </div>
 </div>
 
+<!-- ==================== 线上活动 PAGE ==================== -->
+<div class="page" id="page-online">
+  <div class="header">
+    <button class="back-btn" onclick="navTo('home')">←</button>
+    <div class="title-area">
+      <div class="page-title">线上活动</div>
+      <div class="page-subtitle">产品发布会 · 大咖访谈 · 专题直播</div>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="subnav-list">
+      <div class="subnav-item" onclick="navTo('online-launch')">
+        <span class="item-icon">🎤</span><div class="item-info"><div class="item-label">线上产品发布会</div><div class="item-desc">主策划 · 11张方案+物料</div></div><span class="item-arrow">›</span>
+      </div>
+      <div class="subnav-item"><span class="item-icon">🎙️</span><div class="item-info"><div class="item-label">大咖访谈直播</div><div class="item-desc">待补充物料</div></div><span class="item-arrow">›</span></div>
+      <div class="subnav-item"><span class="item-icon">📺</span><div class="item-info"><div class="item-label">专题直播</div><div class="item-desc">待补充物料</div></div><span class="item-arrow">›</span></div>
+    </div>
+  </div>
+</div>
+
 <!-- ==================== PLACEHOLDER PAGES ==================== -->
 <script>
 // Generate placeholder pages for remaining categories
 const placeholderPages = [
-  { id: 'online', parent: 'home', title: '线上活动', icon: '🎬', desc: '直播 · 线上发布会 · 裂变活动' },
   { id: 'benchmark', parent: 'home', title: '标杆打造', icon: '🏆', desc: '客户案例包装 · 标杆内容输出' },
 ];
 
