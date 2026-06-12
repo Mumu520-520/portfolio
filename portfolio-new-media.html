@@ -1529,11 +1529,51 @@
   </div>
 </div>
 
+<!-- ==================== 标杆打造 PAGE ==================== -->
+<div class="page" id="page-benchmark">
+  <div class="header">
+    <button class="back-btn" onclick="navTo('home')">←</button>
+    <div class="title-area">
+      <div class="page-title">标杆打造</div>
+      <div class="page-subtitle">客户标杆案例 · 品牌IP塑造</div>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="subnav-list">
+      <div class="subnav-item" onclick="navTo('bm-dongyuan')">
+        <span class="item-icon">🏗️</span><div class="item-info"><div class="item-label">东原集团</div><div class="item-desc">超级工厂IP打造 · 9张物料</div></div><span class="item-arrow">›</span>
+      </div>
+      <div class="subnav-item"><span class="item-icon">🏢</span><div class="item-info"><div class="item-label">中海宏洋</div><div class="item-desc">工科中海认知延续</div></div><span class="item-arrow">›</span></div>
+      <div class="subnav-item"><span class="item-icon">🏛️</span><div class="item-info"><div class="item-label">龙华建设</div><div class="item-desc">4143数字化蓝图</div></div><span class="item-arrow">›</span></div>
+      <div class="subnav-item"><span class="item-icon">📖</span><div class="item-info"><div class="item-label">标杆案例集</div><div class="item-desc">待补充</div></div><span class="item-arrow">›</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 东原集团-超级工厂 PAGE ==================== -->
+<div class="page" id="page-bm-dongyuan">
+  <div class="header"><button class="back-btn" onclick="navTo('benchmark')">←</button><div class="title-area"><div class="page-title">东原集团</div><div class="page-subtitle">超级工厂IP打造</div></div></div>
+  <div class="content-container">
+    <div style="margin-bottom:8px;"><img src="images/dongyuan1.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/dongyuan2.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/dongyuan3.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div class="article-card" onclick="openLink('https://mp.weixin.qq.com/s?__biz=MzAxOTQzMzUyNA==&mid=2247491723&idx=1&sn=c1fa71f26d9322832eb105594d9f5fb4')">
+      <div class="card-body"><span class="card-cat">公众号</span><h4>像造飞机一样造房子？他家的「超级工厂」神了！</h4><div class="card-meta"><span>👆 阅读原文</span></div></div>
+    </div>
+    <div style="margin-top:8px;"></div>
+    <div style="margin-bottom:8px;"><img src="images/dongyuan4.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/dongyuan5.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/dongyuan6.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/dongyuan7.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/dongyuan8.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/dongyuan9.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+  </div>
+</div>
+
 <!-- ==================== PLACEHOLDER PAGES ==================== -->
 <script>
 // Generate placeholder pages for remaining categories
 const placeholderPages = [
-  { id: 'benchmark', parent: 'home', title: '标杆打造', icon: '🏆', desc: '客户案例包装 · 标杆内容输出' },
 ];
 
 let html = '';
