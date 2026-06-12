@@ -254,32 +254,6 @@
 </head>
 <body>
 
-<!-- Password Gate -->
-<div class="pw-overlay" id="pwGate">
-  <div class="pw-box">
-    <div class="pw-icon">🔒</div>
-    <h2>蔡岱芸 · 作品集</h2>
-    <div class="pw-sub">请输入访问密码</div>
-    <input type="password" class="pw-input" id="pwInput" placeholder="密码" maxlength="20" onkeydown="if(event.key==='Enter')checkPw()">
-    <div class="pw-error" id="pwError"></div>
-    <button class="pw-btn" onclick="checkPw()">验证</button>
-  </div>
-</div>
-
-<script>
-const PW = '4321';
-function checkPw() {
-  const input = document.getElementById('pwInput').value;
-  if (input === PW) {
-    document.getElementById('pwGate').classList.add('hidden');
-  } else {
-    document.getElementById('pwError').textContent = '密码错误，请重试';
-    document.getElementById('pwInput').value = '';
-    document.getElementById('pwInput').focus();
-  }
-}
-</script>
-
 <!-- ==================== HOME PAGE ==================== -->
 <div class="page active" id="page-home">
   <div class="home-hero">
