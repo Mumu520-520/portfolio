@@ -2006,15 +2006,38 @@ document.body.insertAdjacentHTML('beforeend', html);
 let navStack = ['home'];
 
 function navTo(target) {
-  // Hide all pages
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  // Show target
   const page = document.getElementById('page-' + target);
   if (page) {
     page.classList.add('active');
     window.scrollTo(0, 0);
+    history.pushState({target: target}, '', '#/' + target);
   }
 }
+
+// Handle browser back/forward
+window.addEventListener('popstate', function(e) {
+  if (e.state && e.state.target) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const page = document.getElementById('page-' + e.state.target);
+    if (page) {
+      page.classList.add('active');
+      window.scrollTo(0, 0);
+    }
+  }
+});
+
+// On load, check URL hash
+(function() {
+  const hash = window.location.hash;
+  if (hash && hash.startsWith('#/') && hash.length > 2) {
+    const target = hash.substring(2);
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const page = document.getElementById('page-' + target);
+    if (page) page.classList.add('active');
+    history.replaceState({target: target}, '', hash);
+  }
+})();
 
 // ====== 建造品质观 Data ======
 const jianzaoArticles = [
