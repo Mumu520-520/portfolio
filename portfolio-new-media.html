@@ -457,12 +457,15 @@
     </div>
   </div>
   <div class="content-container">
-    <div class="section-header"><span class="sec-icon">🔋</span> 聚电网络 · 新能源汽车公众号</div>
-    <div class="empty">
-      <div class="empty-icon">📋</div>
-      <p>待补充内容</p>
-      <div class="empty-hint">请提供聚电车间公众号相关文章链接或截图</div>
+    <div class="cat-tabs" id="judian-tabs">
+      <span class="cat-tab active" onclick="filterJudian('产品', this)">产品推介</span>
+      <span class="cat-tab" onclick="filterJudian('充电', this)">充电服务</span>
+      <span class="cat-tab" onclick="filterJudian('用车', this)">用车知识</span>
+      <span class="cat-tab" onclick="filterJudian('公司', this)">公司动态</span>
+      <span class="cat-tab" onclick="filterJudian('活动', this)">活动促销</span>
+      <span class="cat-tab" onclick="filterJudian('环保', this)">行业趋势</span>
     </div>
+    <div class="article-list" id="judian-list"></div>
   </div>
 </div>
 
@@ -2221,6 +2224,63 @@ function filterMaigu(cat, el) {
 }
 
 renderMaigu('荣誉');
+
+// ====== 聚电车间 Data ======
+const judianArticles = [
+  // 产品推介 (5)
+  { title: "奇瑞小蚂蚁推出的五个版本，哪一个最值得购买！", cat: "产品", url: "https://mp.weixin.qq.com/s/fRElSIhbo8w7Ra1cWyng_g" },
+  { title: "续航251公里，新款奇瑞小蚂蚁要升级", cat: "产品", url: "https://mp.weixin.qq.com/s/RpeNrXYOttiB2udPtz_nKA" },
+  { title: "解析奇瑞小蚂蚁车身，中国首台全铝车身电动汽车为何只卖5万元？", cat: "产品", url: "https://mp.weixin.qq.com/s/NvCy2jw2icsmjIB0qcgCSg" },
+  { title: "高颜值的纯电动SUV【荣威ERX5】全车图解", cat: "产品", url: "https://mp.weixin.qq.com/s/Nm2klrjqnWMSEwECspuN7A" },
+  { title: "现在不买，补贴将少60%！全城最低价的电动汽车抢购会开幕！", cat: "产品", url: "https://mp.weixin.qq.com/s/SnAO7BE9KyoHicVhgPWiNg" },
+  // 充电服务 (4)
+  { title: "深圳新增了一大批免停车费的充电点，且对外开放！", cat: "充电", url: "https://mp.weixin.qq.com/s/2dy06V-jj8nZDQNcGKkOIQ" },
+  { title: "为什么总有电动车主可以天天免费充到电？答案就在这里！", cat: "充电", url: "https://mp.weixin.qq.com/s/ttuBCwy59yhM_awKMS6Dmw" },
+  { title: "想在你家免费建充电桩？告诉我，帮你解决！", cat: "充电", url: "https://mp.weixin.qq.com/s/hqm4CtFPOyJ7IQ78ygoooA" },
+  { title: "充电桩新国标解读，千亿级充电市场可期", cat: "充电", url: "https://mp.weixin.qq.com/s/c258w0NIuDZ2pe_aO0QZ2Q" },
+  // 用车知识 (7)
+  { title: "消分秘籍，教你如何把扣掉的分数挣回来！", cat: "用车", url: "https://mp.weixin.qq.com/s/QiSuEbBuJmrx2iOzBr8trQ" },
+  { title: "这些违章可以申请撤销，你知道吗？", cat: "用车", url: "https://mp.weixin.qq.com/s/yQP5bFmtGFHb6Ecm2XL6WA" },
+  { title: "一不小心违章了？小聚教你一分钟搞定！（内有福利）", cat: "用车", url: "https://mp.weixin.qq.com/s/UNVIpCa5RceVLaUl6mZlMQ" },
+  { title: "新能源汽车专用号牌这么特别！那应该怎么申领呢？", cat: "用车", url: "https://mp.weixin.qq.com/s/wceYb1XYTTPKcTgUD44Qpw" },
+  { title: "想在北上广深买新能源汽车？你得先满足这些条件~", cat: "用车", url: "https://mp.weixin.qq.com/s/iutS8F02F28tOSXL9p5_dw" },
+  { title: "深圳又引领潮流了！用拉链车来治堵治塞！", cat: "用车", url: "https://mp.weixin.qq.com/s/RNf5gUZvhWb8-zp3iLFnOA" },
+  { title: "今早8点，就能预约新能源号牌了！靓号都快被抢完了！", cat: "用车", url: "https://mp.weixin.qq.com/s/yaGXOh0xIgBQpubfv8-Ixw" },
+  // 公司动态 (4)
+  { title: "来看看聚电创始人贾雪峰与美女主播海馨都聊了些什么吧？", cat: "公司", url: "https://mp.weixin.qq.com/s/C6_ZHqR1Zcb5FR9_WvSveA" },
+  { title: "聚电CEO贾雪峰接受中国汽车报采访：充电信息平台互联互通尚存三难点", cat: "公司", url: "https://mp.weixin.qq.com/s/70v1gletxmuhjkhKsNrJ-Q" },
+  { title: "致老板：不发红包和iPhone6S，还开什么年会！", cat: "公司", url: "https://mp.weixin.qq.com/s/dtd58kEMKx8EKgotW4KvVA" },
+  { title: "好玩好吃又有钱拿，这才叫真正的年会嘛！", cat: "公司", url: "https://mp.weixin.qq.com/s/jZAQpkG3po5UdZIGd3uHjQ" },
+  // 活动促销 (4)
+  { title: "推荐聚电车间，不但朋友买车便宜，你还有大把现金奖励！", cat: "活动", url: "https://mp.weixin.qq.com/s/dTJRMYhjL5dC6P5C4774DA" },
+  { title: "第四季充电桩众筹正式揭开帷幕！这次有快充！玩更大！", cat: "活动", url: "https://mp.weixin.qq.com/s/KNUEECNLuv_esV8DkRDhgw" },
+  { title: "返了！年末充值大优惠！最高返1280个能量块！", cat: "活动", url: "https://mp.weixin.qq.com/s/SnVyayp9Vk3CHZJPbdZaVQ" },
+  { title: "你们一直嚷嚷着的聚电充电站众筹再次开启！回报更大！手慢无！", cat: "活动", url: "https://mp.weixin.qq.com/s/he-XzLfcmM9i-47_VKMW8g" },
+  // 行业趋势 (3)
+  { title: "深圳绿牌车车主们爽啦！充电免费停车两个钟！还比其他车主省了这些钱！", cat: "环保", url: "https://mp.weixin.qq.com/s/XQd1W4-EzJ3tLfeJCBrbYQ" },
+  { title: "中国190座城市雾霾排名表，你现在在哪里呼吸呢？", cat: "环保", url: "https://mp.weixin.qq.com/s/VRAiNkCF2pDxRtG425_Rlg" },
+  { title: "这个行业有什么好？值得身居高职的他们转身投入？", cat: "环保", url: "https://mp.weixin.qq.com/s/vo2t_PP9TA03ioe-udhFLg" },
+];
+
+const judianCatLabels = { '产品': '产品推介', '充电': '充电服务', '用车': '用车知识', '公司': '公司动态', '活动': '活动促销', '环保': '行业趋势' };
+
+function renderJudian(cat) {
+  const filtered = cat === 'all' ? judianArticles : judianArticles.filter(a => a.cat === cat);
+  const container = document.getElementById('judian-list');
+  container.innerHTML = filtered.map(a => `
+    <div class="article-card" onclick="openLink('${a.url}')">
+      <div class="card-body"><span class="card-cat">${judianCatLabels[a.cat]}</span><h4>${a.title}</h4><div class="card-meta"><span class="platform">公众号</span></div></div>
+    </div>
+  `).join('');
+}
+
+function filterJudian(cat, el) {
+  document.querySelectorAll('#judian-tabs .cat-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderJudian(cat);
+}
+
+renderJudian('产品');
 </script>
 
 </body>
