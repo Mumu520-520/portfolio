@@ -2036,6 +2036,9 @@ window.addEventListener('popstate', function(e) {
     const page = document.getElementById('page-' + target);
     if (page) page.classList.add('active');
     history.replaceState({target: target}, '', hash);
+  } else {
+    // Ensure home page has state so back button works
+    history.replaceState({target: 'home'}, '', '#/home');
   }
 })();
 
