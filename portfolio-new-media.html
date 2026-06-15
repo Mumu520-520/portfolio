@@ -140,8 +140,9 @@
   /* ===== Grid Nav ===== */
   .nav-container { max-width: 500px; margin: 0 auto; padding: 20px 16px; }
   .nav-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
   }
   .nav-card {
@@ -153,6 +154,7 @@
     cursor: pointer;
     transition: transform 0.15s, box-shadow 0.15s;
     -webkit-tap-highlight-color: transparent;
+    width: calc(50% - 5px);
   }
   .nav-card:active { transform: scale(0.96); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
   .nav-card .nav-icon { font-size: 30px; margin-bottom: 8px; display: block; }
