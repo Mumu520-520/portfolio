@@ -303,20 +303,9 @@
         <span class="nav-icon">👥</span>
         <div class="nav-label">社群运营</div>
       </div>
-    </div>
-    <div style="margin-top:12px;text-align:center;font-size:12px;color:#8e99a4;">热点营销</div>
-    <div class="nav-grid" style="margin-top:8px;">
-      <div class="nav-card" onclick="navTo('hot-holiday')">
-        <span class="nav-icon">🎉</span>
-        <div class="nav-label">国庆搞笑海报</div>
-      </div>
-      <div class="nav-card" onclick="navTo('hot-halloween')">
-        <span class="nav-icon">🎃</span>
-        <div class="nav-label">万圣节海报</div>
-      </div>
-      <div class="nav-card" onclick="navTo('hot-expo')">
-        <span class="nav-icon">🔮</span>
-        <div class="nav-label">展会悬疑海报</div>
+      <div class="nav-card" onclick="navTo('hot')">
+        <span class="nav-icon">🔥</span>
+        <div class="nav-label">热点营销</div>
       </div>
     </div>
   </div>
@@ -1644,9 +1633,39 @@
   </div>
 </div>
 
+<!-- ==================== 热点营销 PAGE ==================== -->
+<div class="page" id="page-hot">
+  <div class="header"><button class="back-btn" onclick="navTo('home')">←</button><div class="title-area"><div class="page-title">热点营销</div><div class="page-subtitle">节日借势 · 创意海报</div></div></div>
+  <div class="content-container">
+    <div class="subnav-list">
+      <div class="subnav-item" onclick="navTo('hot-holiday')"><span class="item-icon">🎉</span><div class="item-info"><div class="item-label">国庆搞笑海报</div><div class="item-desc">车贷保+麦联宝+智能麦联 · 9张</div></div><span class="item-arrow">›</span></div>
+      <div class="subnav-item" onclick="navTo('hot-halloween')"><span class="item-icon">🎃</span><div class="item-info"><div class="item-label">万圣节热点海报</div><div class="item-desc">车贷保万圣节 · 1张</div></div><span class="item-arrow">›</span></div>
+      <div class="subnav-item" onclick="navTo('hot-expo')"><span class="item-icon">🔮</span><div class="item-info"><div class="item-label">展会悬疑海报</div><div class="item-desc">九州展神秘预告 · 3张</div></div><span class="item-arrow">›</span></div>
+      <div class="subnav-item" onclick="navTo('hot-may')"><span class="item-icon">🏠</span><div class="item-info"><div class="item-label">五一节营销</div><div class="item-desc">明源移动验房 · 10张海报</div></div><span class="item-arrow">›</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 五一节营销 PAGE ==================== -->
+<div class="page" id="page-hot-may">
+  <div class="header"><button class="back-btn" onclick="navTo('hot')">←</button><div class="title-area"><div class="page-title">五一节营销</div><div class="page-subtitle">明源移动验房 · 10张海报</div></div></div>
+  <div class="content-container">
+    <div style="margin-bottom:8px;"><img src="images/may1.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/may2.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/may3.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/may4.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/may5.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/may6.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/may7.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/may8.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/may9.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+    <div style="margin-bottom:8px;"><img src="images/may10.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
+  </div>
+</div>
+
 <!-- ==================== 国庆搞笑海报 PAGE ==================== -->
 <div class="page" id="page-hot-holiday">
-  <div class="header"><button class="back-btn" onclick="navTo('home')">←</button><div class="title-area"><div class="page-title">国庆搞笑海报</div><div class="page-subtitle">节日借势 · 产品软植入</div></div></div>
+  <div class="header"><button class="back-btn" onclick="navTo('hot')">←</button><div class="title-area"><div class="page-title">国庆搞笑海报</div><div class="page-subtitle">节日借势 · 产品软植入</div></div></div>
   <div class="content-container">
     <div style="margin-bottom:8px;"><img src="images/hot1.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
     <div style="margin-bottom:8px;"><img src="images/hot2.png" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
@@ -1662,7 +1681,7 @@
 
 <!-- ==================== 万圣节海报 PAGE ==================== -->
 <div class="page" id="page-hot-halloween">
-  <div class="header"><button class="back-btn" onclick="navTo('home')">←</button><div class="title-area"><div class="page-title">万圣节热点海报</div><div class="page-subtitle">节日借势 · 产品软植入</div></div></div>
+  <div class="header"><button class="back-btn" onclick="navTo('hot')">←</button><div class="title-area"><div class="page-title">万圣节热点海报</div><div class="page-subtitle">节日借势 · 产品软植入</div></div></div>
   <div class="content-container">
     <div style="margin-bottom:8px;"><img src="images/hot10.jpg" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
   </div>
@@ -1670,7 +1689,7 @@
 
 <!-- ==================== 展会悬疑海报 PAGE ==================== -->
 <div class="page" id="page-hot-expo">
-  <div class="header"><button class="back-btn" onclick="navTo('home')">←</button><div class="title-area"><div class="page-title">展会悬疑海报</div><div class="page-subtitle">九州展神秘预告系列</div></div></div>
+  <div class="header"><button class="back-btn" onclick="navTo('hot')">←</button><div class="title-area"><div class="page-title">展会悬疑海报</div><div class="page-subtitle">九州展神秘预告系列</div></div></div>
   <div class="content-container">
     <div style="margin-bottom:8px;"><img src="images/hot11.jpg" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
     <div style="margin-bottom:8px;"><img src="images/hot12.jpg" style="width:100%;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.08);" onerror="this.style.display='none'"></div>
